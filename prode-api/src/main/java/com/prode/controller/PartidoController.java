@@ -14,6 +14,8 @@ import com.prode.dto.PartidoRequest;
 import com.prode.entity.Partido;
 import com.prode.service.PartidoService;
 
+import com.prode.dto.ResultadoRequest;
+
 @RestController
 @RequestMapping("/partidos")
 public class PartidoController {
@@ -51,5 +53,15 @@ public class PartidoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         partidoService.eliminar(id);
+    }
+
+    @PostMapping("/{id}/resultado")
+    public Partido registrarResultado(
+            @PathVariable Long id,
+            @RequestBody ResultadoRequest request) {
+
+        return partidoService.registrarResultado(
+                id,
+                request);
     }
 }
