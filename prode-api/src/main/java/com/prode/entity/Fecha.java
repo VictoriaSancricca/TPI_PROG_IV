@@ -1,6 +1,7 @@
 package com.prode.entity;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.prode.enums.EstadoFecha;
 
 import jakarta.persistence.Column;
@@ -27,6 +28,7 @@ public class Fecha {
     @Enumerated(EnumType.STRING)
     private EstadoFecha estado;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "fecha")
     private List<Partido> partidos;
 
