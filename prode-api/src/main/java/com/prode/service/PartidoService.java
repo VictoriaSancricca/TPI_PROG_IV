@@ -18,7 +18,6 @@ import com.prode.repository.FechaRepository;
 import com.prode.repository.PartidoRepository;
 import com.prode.repository.PronosticoRepository;
 import com.prode.repository.UsuarioRepository;
-import com.prode.enums.EstadoPartido;
 import com.prode.enums.Tendencia;
 
 @Service
@@ -28,7 +27,7 @@ public class PartidoService {
     private final FechaRepository fechaRepository;
     private final EquipoRepository equipoRepository;
     private final PronosticoRepository pronosticoRepository;
-     final UsuarioRepository usuarioRepository;
+   private final UsuarioRepository usuarioRepository;
     
      public PartidoService(
         PartidoRepository partidoRepository,
@@ -37,12 +36,12 @@ public class PartidoService {
         PronosticoRepository pronosticoRepository,
         UsuarioRepository usuarioRepository) {
 
-    this.partidoRepository = partidoRepository;
-    this.fechaRepository = fechaRepository;
-    this.equipoRepository = equipoRepository;
-    this.pronosticoRepository = pronosticoRepository;
-    this.usuarioRepository = usuarioRepository;
-}
+        this.partidoRepository = partidoRepository;
+        this.fechaRepository = fechaRepository;
+        this.equipoRepository = equipoRepository;
+        this.pronosticoRepository = pronosticoRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     public List<Partido> listar() {
         return partidoRepository.findAll();

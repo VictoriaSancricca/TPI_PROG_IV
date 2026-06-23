@@ -21,6 +21,7 @@ public class Usuario {
     @Column(nullable = false)
     private String nombre;
 
+    @JsonIgnore
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -32,6 +33,7 @@ public class Usuario {
 
     private Integer plenos = 0;
 
+    @JsonIgnore //esto es para que no se vea el rol
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;

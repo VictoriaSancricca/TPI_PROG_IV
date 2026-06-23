@@ -47,19 +47,21 @@
                     Ingresá a tu cuenta para continuar
                 </p>
 
-                <form>
+                <form id="loginForm">
 
                     <div class="input-group">
                         <label>Usuario</label>
                         <input
-                            type="text"
-                            placeholder="Ingresá tu usuario">
+                            type="email"
+                            id="email"
+                            placeholder="Ingresá tu email">
                     </div>
 
                     <div class="input-group">
                         <label>Contraseña</label>
                         <input
                             type="password"
+                            id="password"
                             placeholder="Ingresá tu contraseña">
                     </div>
 
@@ -94,6 +96,8 @@
 
     </div>
 
+    <script src="/js/login.js"></script>
+    
 </body>
 
 </html>
