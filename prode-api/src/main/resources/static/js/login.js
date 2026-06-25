@@ -28,7 +28,12 @@ document
 
             if (!response.ok) {
 
-                alert("Email o contraseña incorrectos");
+                Swal.fire({
+                    icon: "error",
+                    title: "No se pudo iniciar sesión",
+                    text: "Email o contraseña incorrectos.",
+                    confirmButtonColor: "#1E88E5"
+                });
                 return;
             }
 
@@ -39,7 +44,13 @@ document
                 JSON.stringify(data)
             );
 
-            alert("Bienvenido " + data.nombre);
+            await Swal.fire({
+                icon: "success",
+                title: "¡Bienvenido!",
+                text: data.nombre,
+                timer: 1400,
+                showConfirmButton: false
+            });
 
             window.location.href = "/dashboard";
 
@@ -47,6 +58,11 @@ document
 
             console.error(error);
 
-            alert("Error al conectar con el servidor");
+            Swal.fire({
+                icon: "error",
+                title: "Servidor no disponible",
+                text: "No fue posible conectar con el backend.",
+                confirmButtonColor: "#d33"
+            });
         }
     });

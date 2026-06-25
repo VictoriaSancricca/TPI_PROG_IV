@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - Prode Mundial 2026</title>
+
+    <link rel="stylesheet" href="/css/login.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="left-side">
+
+            <div class="logo-container">
+
+                <img src="/img/copa.png" alt="Logo">
+
+                <h1>
+                    PRODE
+                    <span>MUNDIAL 2026</span>
+                </h1>
+
+                <p>
+                    Creá tu cuenta y empezá a competir ⚽
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="right-side">
+
+            <div class="login-card">
+
+                <div class="login-logo">
+                    <img src="/img/logoPelota.png" alt="Registro">
+                </div>
+
+                <h2>Crear cuenta</h2>
+
+                <p class="subtitle">
+                    Completá los datos para registrarte
+                </p>
+
+                <form id="registerForm">
+
+                    <div class="input-group">
+                        <label>Nombre</label>
+                        <input
+                                type="text"
+                                id="nombre"
+                                placeholder="Ingresá tu nombre"
+                                required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input
+                                type="email"
+                                id="email"
+                                placeholder="Ingresá tu email"
+                                required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Contraseña</label>
+                        <input
+                                type="password"
+                                id="password"
+                                placeholder="Ingresá una contraseña"
+                                required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Confirmar contraseña</label>
+                        <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Repetí la contraseña"
+                                required>
+                    </div>
+
+                    <button type="submit">
+                        REGISTRARSE
+                    </button>
+
+                </form>
+
+                <div class="separator">
+                    <span>o</span>
+                </div>
+
+                <a href="/login" class="register-btn">
+                    YA TENGO CUENTA
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/register.js"></script>
+
+</body>
+
+</html>

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prode.dto.LoginRequest;
-import com.prode.dto.LoginResponse;
 import com.prode.dto.RegisterRequest;
 import com.prode.entity.Usuario;
 import com.prode.service.AuthService;
@@ -23,22 +22,36 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Usuario> register(
+    public ResponseEntity<?> register(
             @RequestBody RegisterRequest request) {
 
-        Usuario usuario = authService.registrar(request);
+        try {
 
-        return ResponseEntity.ok(usuario);
+            Usuario usuario = authService.registrar(request);
+
+            return ResponseEntity.ok(usuario);
+
+        } catch (RuntimeException e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(
+    public ResponseEntity<?> login(
             @RequestBody LoginRequest request) {
 
-        System.out.println("ENTRO AL LOGIN");
+        try {
 
-        return ResponseEntity.ok(
-                authService.login(request)
-        );
+            return ResponseEntity.ok(
+                    authService.login(request)
+            );
+
+        } catch (RuntimeException e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 }
