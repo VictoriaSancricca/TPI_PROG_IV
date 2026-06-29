@@ -38,7 +38,7 @@ document
             }
 
             const data = await response.json();
-
+                
             localStorage.setItem(
                 "usuario",
                 JSON.stringify(data)

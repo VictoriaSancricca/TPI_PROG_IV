@@ -70,9 +70,12 @@ public class AuthService {
         }
 
         return new LoginResponse(
-                "Login correcto",
-                usuario.getNombre(),
-                usuario.getRol().getNombre().name()
-        );
-    }
+            "Login correcto",
+            usuario.getId(),
+            usuario.getNombre(),
+            usuario.getPuntos(),
+            usuario.getPlenos(),
+            usuario.getRol().getNombre().name()
+    );
+}
 }

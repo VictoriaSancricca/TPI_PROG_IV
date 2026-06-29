@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Predicta - Mundial 2026</title>
+    <title>Reglas - Predicta Mundial 2026</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/dashboard.css">
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <nav>
+       <nav>
 
             <a href="/dashboard" class="menu active">
                 <i class="bi bi-house-fill"></i>
@@ -76,22 +76,22 @@
         <div class="header">
 
             <div>
-                <h1 id="saludo">¡Hola! 👋</h1>
-                <p>Bienvenida a Predicta 2026</p>
+                <h1>📜 Reglas del Prode</h1>
+                <p>Conocé cómo se juega Predicta Mundial 2026</p>
             </div>
 
             <img src="/img/world-cup.png" class="cup">
 
             <div class="timer">
-                <small>Cierre de pronósticos</small>
-                <h2>02 : 15 : 43</h2>
+                <small>Competencia Oficial</small>
+                <h2>FIFA 2026</h2>
             </div>
 
             <div class="user-box">
                 <i class="bi bi-person-circle"></i>
                 <div>
                     <strong id="nombreUsuario"></strong>
-                    <small>Nivel 5 ⭐</small>
+                    <small>Jugador</small>
                 </div>
             </div>
 
@@ -100,34 +100,26 @@
         <section class="cards">
 
             <div class="card">
-                <i class="bi bi-trophy"></i>
+                <i class="bi bi-check-circle-fill"></i>
                 <div>
-                    <span>Mi posición: </span>
-                    <h2 id="miPosicion">-</h2>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="bi bi-star-fill"></i>
-                <div>
-                    <span>Mis puntos: </span>
-                    <h2 id="misPuntos">0</h2>
+                    <span>Resultado exacto</span>
+                    <h2>3 pts</h2>
                 </div>
             </div>
 
             <div class="card">
                 <i class="bi bi-bullseye"></i>
                 <div>
-                    <span>Pronósticos exactos: </span>
-                    <h2 id="misPlenos">0</h2>
+                    <span>Tendencia correcta</span>
+                    <h2>1 pt</h2>
                 </div>
             </div>
 
             <div class="card">
-                <i class="bi bi-calendar-event"></i>
+                <i class="bi bi-x-circle-fill"></i>
                 <div>
-                    <span>Fecha actual</span>
-                    <h2>3</h2>
+                    <span>Pronóstico incorrecto</span>
+                    <h2>0 pts</h2>
                 </div>
             </div>
 
@@ -136,20 +128,81 @@
         <section class="matches">
 
             <div class="section-title">
-                Próximos partidos
+                Reglamento Oficial
             </div>
 
-            <div id="partidosContainer"></div>
+            <div class="match-card" style="display:block;">
 
-        </section>
+                <h3>🎯 Sistema de puntuación</h3>
 
-        <section class="ranking">
+                <p>✔ Resultado exacto: <strong>3 puntos.</strong></p>
 
-            <div class="section-title">
-                Ranking General
+                <p>✔ Tendencia correcta (gana local, empate o gana visitante): <strong>1 punto.</strong></p>
+
+                <p>✔ Pronóstico incorrecto: <strong>0 puntos.</strong></p>
+
+                <hr>
+
+                <h3>⏰ Cierre de pronósticos</h3>
+
+                <p>
+                    Los pronósticos podrán realizarse únicamente antes
+                    del inicio de cada partido. Una vez comenzado el
+                    encuentro ya no podrán modificarse.
+                </p>
+
+                <hr>
+
+                <h3>🏆 Ranking</h3>
+
+                <p>La clasificación general se ordena por:</p>
+
+                <ol style="margin-left:25px;">
+
+                    <li>Puntos obtenidos.</li>
+
+                    <li>Cantidad de pronósticos exactos (Plenos).</li>
+
+                </ol>
+
+                <hr>
+
+                <h3>⚽ Mundial 2026</h3>
+
+                <p>
+                    El torneo se desarrolla respetando las fases oficiales
+                    del Mundial FIFA:
+                </p>
+
+                <ul style="margin-left:25px;">
+
+                    <li>Fase de grupos.</li>
+
+                    <li>Dieciseisavos de final.</li>
+
+                    <li>Octavos de final.</li>
+
+                    <li>Cuartos de final.</li>
+
+                    <li>Semifinales.</li>
+
+                    <li>Final.</li>
+
+                </ul>
+
+                <hr>
+
+                <h3>👑 Administración</h3>
+
+                <p>
+
+                    El administrador será el responsable de gestionar los
+                    equipos, grupos, partidos, resultados y el avance
+                    automático de las distintas fases del torneo.
+
+                </p>
+
             </div>
-
-            <div id="rankingContainer"></div>
 
         </section>
 
@@ -157,8 +210,9 @@
 
 </div>
 
-<script src="/js/dashboard.js"></script>
+<script src="/js/reglas.js"></script>
 <script src="/js/app.js"></script>
 
 </body>
+
 </html>

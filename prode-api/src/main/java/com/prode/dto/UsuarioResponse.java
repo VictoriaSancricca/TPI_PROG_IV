@@ -1,33 +1,28 @@
 package com.prode.dto;
 
-public class LoginResponse {
+public class UsuarioResponse {
 
-    private String mensaje;
     private Long id;
     private String nombre;
+    private String email;
     private Integer puntos;
     private Integer plenos;
-    private String rol;
 
-    public LoginResponse() {
+    public UsuarioResponse() {
     }
 
-    public LoginResponse(String mensaje, Long id, String nombre,
-                         Integer puntos, Integer plenos, String rol) {
-        this.mensaje = mensaje;
+    public UsuarioResponse(
+            Long id,
+            String nombre,
+            String email,
+            Integer puntos,
+            Integer plenos) {
+
         this.id = id;
         this.nombre = nombre;
+        this.email = email;
         this.puntos = puntos;
         this.plenos = plenos;
-        this.rol = rol;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
     }
 
     public Long getId() {
@@ -46,6 +41,14 @@ public class LoginResponse {
         this.nombre = nombre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Integer getPuntos() {
         return puntos;
     }
@@ -62,11 +65,4 @@ public class LoginResponse {
         this.plenos = plenos;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
 }

@@ -199,4 +199,10 @@ public class PartidoService {
 
         return 0;
     }
+
+    public List<Partido> listarPorJugar() {
+
+        return partidoRepository.findByEstadoOrderByFechaHoraAsc(
+                EstadoPartido.POR_JUGARSE);
+    }
 }

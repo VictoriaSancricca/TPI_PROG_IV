@@ -64,4 +64,9 @@ public class PartidoController {
                 id,
                 request);
     }
+
+    @GetMapping("/proximos")
+    public List<Partido> listarProximos() {
+        return partidoService.listarPorJugar();
+    }
 }
