@@ -1,0 +1,281 @@
+/*=========================================
+            CABECERA
+=========================================*/
+
+.section-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+
+}
+
+.section-header h2{
+
+    font-size:32px;
+    color:#0B2447;
+    font-weight:800;
+
+}
+
+.btn-filtro{
+
+    background:#fff;
+    border:1px solid #E4ECF8;
+    border-radius:14px;
+    padding:12px 20px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#1E63E9;
+    font-weight:700;
+
+    box-shadow:0 5px 14px rgba(0,0,0,.05);
+
+}
+
+.btn-filtro:hover{
+
+    background:#F8FBFF;
+
+}
+
+/*=========================================
+            LISTA
+=========================================*/
+
+#partidosContainer{
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+
+}
+
+/*=========================================
+            TARJETA
+=========================================*/
+
+.match-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:18px 22px;
+
+    display:grid;
+
+    grid-template-columns:
+        95px
+        1fr
+        120px
+        1fr
+        150px;
+
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    border:1px solid #EDF2F8;
+
+    transition:.25s;
+
+}
+
+.match-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 14px 28px rgba(0,0,0,.10);
+
+}
+
+/*=========================================
+            FECHA
+=========================================*/
+
+.match-date{
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+}
+
+.group{
+
+    background:#1E63E9;
+    color:white;
+
+    width:max-content;
+
+    padding:5px 12px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+}
+
+.match-date small{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#6B7280;
+
+    font-size:12px;
+
+}
+
+.match-date i{
+
+    color:#8FA0B9;
+
+}
+
+/*=========================================
+            EQUIPOS
+=========================================*/
+
+.team{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+}
+
+.team-icon{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    background:#F2F6FD;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.team-icon i{
+
+    color:#1E63E9;
+    font-size:20px;
+
+}
+
+.team span{
+
+    font-size:21px;
+
+    color:#0B2447;
+
+    font-weight:700;
+
+}
+
+/*=========================================
+            RESULTADO
+=========================================*/
+
+.score{
+
+    background:#F6F8FC;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    text-align:center;
+
+    font-size:34px;
+
+    font-weight:900;
+
+    color:#173F7B;
+
+}
+
+/*=========================================
+            ESTADO
+=========================================*/
+
+.estado{
+
+    justify-self:end;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.estado.finalizado{
+
+    background:#FFE9A6;
+    color:#B88300;
+
+}
+
+.estado.por_jugarse{
+
+    background:#EDF4FF;
+    color:#1E63E9;
+
+}
+
+.estado.en_juego{
+
+    background:#DCFCE7;
+    color:#15803D;
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:1200px){
+
+.match-card{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+}
+
+.estado{
+
+    justify-self:start;
+
+}
+
+.score{
+
+    width:120px;
+
+}
+
+}

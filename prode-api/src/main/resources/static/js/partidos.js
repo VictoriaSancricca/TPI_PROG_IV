@@ -18,18 +18,58 @@ async function cargarPartidos() {
 
     contenedor.innerHTML = "";
 
-    partidos.forEach(partido => {
+        partidos.forEach(partido => {
+
+        const fechaHora = new Date(partido.fechaHora);
+
+        const fecha = fechaHora.toLocaleDateString("es-AR", {
+            day: "2-digit",
+            month: "short"
+        }).toUpperCase();
+
+        const hora = fechaHora.toLocaleTimeString("es-AR", {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
 
         contenedor.innerHTML += `
 
         <div class="match-card">
 
-            <span class="group">
-                ${partido.fecha.nombre}
-            </span>
+            <div class="match-date">
+
+                <span class="group">
+                    ${partido.fecha.nombre}
+                </span>
+
+                <small>
+
+                    <i class="bi bi-calendar3"></i>
+
+                    ${fecha}
+
+                </small>
+
+                <small>
+
+                    <i class="bi bi-clock"></i>
+
+                    ${hora}
+
+                </small>
+
+            </div>
 
             <div class="team">
-                ${partido.local.nombre}
+
+                <div class="team-icon">
+
+                    <i class="bi bi-circle-fill"></i>
+
+                </div>
+
+                <span>${partido.local.nombre}</span>
+
             </div>
 
             <div class="score">
@@ -43,12 +83,22 @@ async function cargarPartidos() {
             </div>
 
             <div class="team">
-                ${partido.visitante.nombre}
+
+                <div class="team-icon">
+
+                    <i class="bi bi-circle-fill"></i>
+
+                </div>
+
+                <span>${partido.visitante.nombre}</span>
+
             </div>
 
-            <button disabled>
-                ${partido.estado}
-            </button>
+            <div class="estado ${partido.estado.toLowerCase()}">
+
+                ${partido.estado.replace("_"," ")}
+
+            </div>
 
         </div>
 

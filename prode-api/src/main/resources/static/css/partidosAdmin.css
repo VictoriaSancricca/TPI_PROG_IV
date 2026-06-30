@@ -1,0 +1,265 @@
+/*======================================================
+                    PARTIDOS
+======================================================*/
+
+/* Encabezado y filas */
+
+.equipos-header,
+.equipo-row{
+
+    display:grid !important;
+
+    grid-template-columns:
+        .7fr
+        2fr
+        .5fr
+        2fr
+        1.2fr
+        1fr !important;
+
+    align-items:center !important;
+
+    width:100% !important;
+
+    padding:18px 28px !important;
+
+    column-gap:10px !important;
+
+}
+
+.equipos-header > div,
+.equipo-row > div{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Equipos */
+
+.partido-equipo{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+    color:#163A63;
+
+}
+
+.partido-equipo span{
+
+    min-width:95px;
+
+}
+
+.partido-equipo .bandera{
+
+    width:34px;
+
+    height:24px;
+
+    object-fit:cover;
+
+    border-radius:5px;
+
+    border:1px solid #E4EAF2;
+
+    background:white;
+
+}
+
+/* VS */
+
+.vs{
+
+    font-size:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:800;
+
+    color:#7B8794;
+
+    letter-spacing:1px;
+
+}
+
+/* Estados */
+
+.estado{
+
+    margin:0 auto;
+    
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    text-transform:capitalize;
+
+}
+
+.estado.por_jugarse{
+
+    background:#FFF7E0;
+
+    color:#C58B00;
+
+}
+
+.estado.en_juego{
+
+    background:#E4F2FF;
+
+    color:#1565C0;
+
+}
+
+.estado.finalizado{
+
+    background:#E8F8EE;
+
+    color:#1E8E3E;
+
+}
+
+/* Acciones */
+
+.equipo-acciones{
+
+    display:flex !important;
+
+    justify-content:center !important;
+
+    align-items:center !important;
+
+    gap:12px !important;
+
+}
+
+/* Selects */
+
+#grupo,
+#local,
+#visitante{
+
+    width:100%;
+
+}
+
+/*======================================================
+                    MODAL
+======================================================*/
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.form-grid .campo{
+
+    margin-bottom:0;
+
+}
+
+.form-grid .campo label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+.form-grid input,
+.form-grid select{
+
+    width:100%;
+
+}
+
+@media(max-width:700px){
+
+.form-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+/* Visitante */
+.equipo-row > div:nth-child(4),
+.equipos-header > div:nth-child(4){
+
+    transform: translateX(-8px);
+
+}
+
+/* Estado */
+.equipo-row > div:nth-child(5),
+.equipos-header > div:nth-child(5){
+    display:flex;
+    transform: translateX(-6px);
+    align-items:center;
+}
+
+/* Acciones */
+.equipo-row > div:nth-child(6),
+.equipos-header > div:nth-child(6){
+
+    transform: translateX(-10px);
+
+}
+
+.grupo-pill{
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:#E8F1FF;
+
+    color:#1565C0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:800;
+
+    margin:auto;
+
+}

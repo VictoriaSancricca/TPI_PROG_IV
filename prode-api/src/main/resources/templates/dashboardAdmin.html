@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel Administrador - Predicta</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <link rel="stylesheet" href="/css/admin.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-trophy-fill"></i>
+
+            <div>
+
+                <h2>PREDICTA</h2>
+
+                <span>ADMINISTRADOR</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="/admin" class="menu active">
+
+                <i class="bi bi-house-fill"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="/admin/equipos" class="menu">
+
+                <i class="bi bi-flag-fill"></i>
+
+                Equipos
+
+            </a>
+
+            <a href="/admin/grupos" class="menu">
+
+                <i class="bi bi-diagram-3-fill"></i>
+
+                Grupos
+
+            </a>
+
+            <a href="/admin/partidos" class="menu">
+
+                <i class="bi bi-calendar-event-fill"></i>
+
+                Partidos
+
+            </a>
+
+            <a href="/admin/resultados" class="menu">
+
+                <i class="bi bi-trophy-fill"></i>
+
+                Resultados
+
+            </a>
+
+            <a href="/admin/fases" class="menu">
+
+                <i class="bi bi-arrow-repeat"></i>
+
+                Fases
+
+            </a>
+
+            <a href="/ranking" class="menu">
+
+                <i class="bi bi-bar-chart-fill"></i>
+
+                Ranking
+
+            </a>
+
+        </nav>
+
+        <a href="#" class="logout" id="logout">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            Cerrar sesión
+
+        </a>
+
+    </aside>
+
+    <button id="toggleSidebar" class="toggle-sidebar">
+
+        <i class="bi bi-list"></i>
+
+    </button>
+
+    <main class="content">
+
+        <div class="admin-header">
+
+            <div>
+
+                <h1>👑 Panel de Administración</h1>
+
+                <p>Gestioná todo el Mundial 2026 desde un solo lugar.</p>
+
+            </div>
+
+        </div>
+
+        <section class="admin-cards">
+
+            <div class="admin-card">
+
+                <i class="bi bi-people-fill"></i>
+
+                <div>
+
+                    <span>Usuarios</span>
+
+                    <h2 id="cantUsuarios">0</h2>
+
+                </div>
+
+            </div>
+
+            <div class="admin-card">
+
+                <i class="bi bi-globe-americas"></i>
+
+                <div>
+
+                    <span>Equipos</span>
+
+                    <h2 id="cantEquipos">0</h2>
+
+                </div>
+
+            </div>
+
+            <div class="admin-card">
+
+                <i class="bi bi-diagram-3-fill"></i>
+
+                <div>
+
+                    <span>Grupos</span>
+
+                    <h2 id="cantGrupos">0</h2>
+
+                </div>
+
+            </div>
+
+            <div class="admin-card">
+
+                <i class="bi bi-calendar-event-fill"></i>
+
+                <div>
+
+                    <span>Partidos</span>
+
+                    <h2 id="cantPartidos">0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="admin-title">
+
+            <h2>Gestión del Mundial</h2>
+
+            <p>Seleccioná el módulo que querés administrar.</p>
+
+        </section>
+
+        <section class="admin-grid">
+
+            <a href="/admin/equipos" class="admin-box">
+
+                <i class="bi bi-flag-fill"></i>
+
+                <h3>Equipos</h3>
+
+                <p>Crear, editar y eliminar equipos.</p>
+
+            </a>
+
+            <a href="/admin/grupos" class="admin-box">
+
+                <i class="bi bi-diagram-3-fill"></i>
+
+                <h3>Grupos</h3>
+
+                <p>Administrar grupos del Mundial.</p>
+
+            </a>
+
+            <a href="/admin/partidos" class="admin-box">
+
+                <i class="bi bi-calendar2-event-fill"></i>
+
+                <h3>Partidos</h3>
+
+                <p>Crear y editar partidos.</p>
+
+            </a>
+
+            <a href="/admin/resultados" class="admin-box">
+
+                <i class="bi bi-trophy-fill"></i>
+
+                <h3>Resultados</h3>
+
+                <p>Cargar resultados oficiales.</p>
+
+            </a>
+
+            <a href="/admin/fases" class="admin-box">
+
+                <i class="bi bi-arrow-repeat"></i>
+
+                <h3>Fases</h3>
+
+                <p>Generar Octavos, Cuartos y Semifinal.</p>
+
+            </a>
+
+            <a href="/ranking" class="admin-box">
+
+                <i class="bi bi-bar-chart-fill"></i>
+
+                <h3>Ranking</h3>
+
+                <p>Ver el ranking de los jugadores.</p>
+
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/js/admin.js"></script>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>

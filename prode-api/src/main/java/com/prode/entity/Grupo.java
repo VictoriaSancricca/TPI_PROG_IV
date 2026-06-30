@@ -1,10 +1,10 @@
 package com.prode.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "grupos")
@@ -14,10 +14,13 @@ public class Grupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //validacion para no poder poner un + de una letra 
+    @Column(nullable = false, unique = true, length = 1)
     private String nombre;
 
-    @Column(unique = true)
-    private String codigoInvitacion;
+    @JsonIgnore
+    @OneToMany(mappedBy = "grupo", fetch = FetchType.EAGER)
+    private List<Equipo> equipos = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -25,7 +28,7 @@ public class Grupo {
 
     public void setId(Long id) {
         this.id = id;
-    }
+    } 
 
     public String getNombre() {
         return nombre;
@@ -35,13 +38,11 @@ public class Grupo {
         this.nombre = nombre;
     }
 
-    public String getCodigoInvitacion() {
-        return codigoInvitacion;
+    public List<Equipo> getEquipos() {
+        return equipos;
     }
 
-    public void setCodigoInvitacion(String codigoInvitacion) {
-        this.codigoInvitacion = codigoInvitacion;
+    public void setEquipos(List<Equipo> equipos) {
+        this.equipos = equipos;
     }
-
-    
 }

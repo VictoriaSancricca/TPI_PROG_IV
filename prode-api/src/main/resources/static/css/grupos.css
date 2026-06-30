@@ -1,0 +1,443 @@
+/*======================================================
+                    GRID
+======================================================*/
+
+.grupos-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+
+    gap:28px;
+
+    margin-top:10px;
+
+}
+
+/*======================================================
+                CARD
+======================================================*/
+
+.grupo-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    box-shadow:0 10px 28px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+    overflow:hidden;
+
+    border:1px solid #E6EDF7;
+
+}
+
+.grupo-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 38px rgba(0,0,0,.12);
+
+}
+
+/*======================================================
+                HEADER
+======================================================*/
+
+.grupo-header{
+
+    background:linear-gradient(135deg,#1976D2,#1565C0);
+
+    color:white;
+
+    padding:18px 22px;
+
+}
+
+.grupo-header h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:22px;
+
+    font-weight:800;
+
+}
+
+/*======================================================
+                BODY
+======================================================*/
+
+.grupo-body{
+
+    padding:20px;
+
+    min-height:180px;
+    flex-direction:column;
+    display:flex;
+    gap:12px;
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.sin-equipos{
+
+    color:#8B98AC;
+
+    font-size:15px;
+
+    text-align:center;
+
+}
+
+/*======================================================
+            LISTA EQUIPOS
+======================================================*/
+
+.lista-equipos{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    width:100%;
+
+}
+
+.equipo-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:14px 18px;
+
+    background:#F8FBFF;
+
+    border-radius:14px;
+
+    border:1px solid #E3ECF7;
+
+}
+
+.equipo-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.equipo-info img{
+
+    width:36px;
+
+    height:24px;
+
+    border-radius:6px;
+
+    object-fit:cover;
+
+    border:1px solid #DCE5F3;
+
+}
+
+.equipo-info span{
+
+    font-weight:700;
+
+    color:#16304D;
+
+}
+
+.equipo-puntos{
+
+    font-weight:800;
+
+    color:#1565C0;
+
+}
+
+/*======================================================
+            CLASIFICADOS
+======================================================*/
+
+.clasificados{
+
+    margin-top:18px;
+
+    padding-top:18px;
+
+    border-top:1px solid #E6EDF7;
+
+}
+
+.clasificados h4{
+
+    font-size:14px;
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
+
+}
+
+.clasificado{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#2E7D32;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+/*======================================================
+                FOOTER
+======================================================*/
+
+.grupo-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    padding:18px 22px;
+
+    background:#F9FBFD;
+
+    border-top:1px solid #E6EDF7;
+
+}
+
+/*======================================================
+            BOTON FASE
+======================================================*/
+
+.btn-fase{
+
+    width:100%;
+
+    margin-top:18px;
+
+    background:linear-gradient(135deg,#43A047,#2E7D32);
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-fase:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(46,125,50,.25);
+
+}
+
+/*======================================================
+            RESPONSIVE
+======================================================*/
+
+@media(max-width:1200px){
+
+.grupos-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.grupos-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+/*==========================================
+            EQUIPOS DEL GRUPO
+==========================================*/
+
+.equipo-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #EEF2F7;
+
+}
+
+.equipo-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.equipo-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.equipo-info img{
+
+    width:52px;
+
+    height:36px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    border:1px solid #DCE6F3;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+
+}
+
+.equipo-info strong{
+
+    display:block;
+
+    font-size:16px;
+
+    color:#0B2447;
+
+}
+
+.equipo-info span{
+
+    color:#1565C0;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.equipo-puntos{
+
+    background:#EEF5FF;
+
+    color:#1565C0;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+/*==========================================
+            FOOTER
+==========================================*/
+
+.grupo-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+.grupo-footer div{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+/*==========================================
+        BOTON PASAR DE FASE
+==========================================*/
+
+.btn-clasificar{
+
+    border:none;
+
+    background:linear-gradient(135deg,#1565C0,#0D47A1);
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:.25s;
+
+    box-shadow:0 8px 18px rgba(21,101,192,.20);
+
+}
+
+.btn-clasificar:hover{
+
+    transform:translateY(-2px);
+
+}

@@ -8,6 +8,8 @@ import com.prode.entity.Grupo;
 
 public interface GrupoRepository extends JpaRepository<Grupo, Long> {
 
-    Optional<Grupo> findByCodigoInvitacion(String codigoInvitacion);
+    Optional<Grupo> findByNombre(String nombre);
+
+    boolean existsByNombre(String nombre);
 
 }

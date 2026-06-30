@@ -1,0 +1,27 @@
+/*======================================================
+                    EQUIPOS
+======================================================*/
+
+/* Ancho específico de algunas columnas */
+
+.equipo-fifa{
+
+    letter-spacing:1.5px;
+
+}
+
+/* Cuando más adelante exista el grupo */
+
+.grupo-pill{
+
+    min-width:55px;
+
+}
+
+/* Si alguna bandera es muy chica */
+
+.bandera{
+
+    background:white;
+
+}

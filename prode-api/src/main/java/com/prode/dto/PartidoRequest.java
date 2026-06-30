@@ -8,6 +8,7 @@ public class PartidoRequest {
     private Long localId;
     private Long visitanteId;
     private LocalDateTime fechaHora;
+    private Long grupoId;
 
     public Long getFechaId() {
         return fechaId;
@@ -40,4 +41,14 @@ public class PartidoRequest {
     public void setFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
+
+    public Long getGrupoId() {
+        return grupoId;
+    }
+
+    public void setGrupoId(Long grupoId) {
+        this.grupoId = grupoId;
+    }
+
+    
 }

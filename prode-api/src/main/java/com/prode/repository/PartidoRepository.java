@@ -13,4 +13,9 @@ public interface PartidoRepository extends JpaRepository<Partido, Long> {
 
     List<Partido> findByEstadoOrderByFechaHoraAsc(EstadoPartido estado);
 
+    List<Partido> findByGrupoIdOrderByFechaHoraAsc(Long grupoId);
+
+    List<Partido> findByGrupoIdAndEstado(
+        Long grupoId,
+        EstadoPartido estado);
 }

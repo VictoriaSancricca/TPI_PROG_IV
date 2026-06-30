@@ -1,0 +1,1333 @@
+/*======================================================
+                ADMIN UI KIT
+                PREDICTA 2026
+======================================================*/
+
+:root{
+
+    --primary:#1565C0;
+    --primary-dark:#0D47A1;
+    --primary-light:#EAF3FF;
+ 
+    --yellow:#FFD54F;
+
+    --success:#2E7D32;
+    --danger:#E53935;
+    --warning:#FB8C00;
+
+    --background:#F5F8FD;
+
+    --card:#FFFFFF;
+
+    --text:#16304D;
+    --text-light:#728197;
+
+    --border:#E5EDF8;
+
+    --shadow:
+            0 12px 35px rgba(21,101,192,.08);
+
+    --radius:22px;
+
+}
+
+
+/*======================================================
+                    CONTENT
+======================================================*/
+
+.content{
+
+    background:var(--background);
+
+}
+
+
+/*======================================================
+                    HERO
+======================================================*/
+
+.hero-card{
+
+    width:100%;
+
+    min-height:120px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:24px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:25px;
+
+}
+
+.hero-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    right:-160px;
+
+    top:-170px;
+
+    background:
+
+            radial-gradient(circle,
+            rgba(21,101,192,.12),
+            transparent 70%);
+
+}
+
+.hero-card::after{
+
+    content:"🏆";
+
+    position:absolute;
+
+    right:55px;
+
+    top:22px;
+
+    font-size:120px;
+
+    opacity:.08;
+
+}
+
+
+.hero-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    z-index:2;
+
+}
+
+.hero-icon{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:18px;
+
+    background:
+
+            linear-gradient(135deg,
+            #1976D2,
+            #1565C0);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:28px;
+
+    box-shadow:
+
+            0 12px 28px rgba(21,101,192,.25);
+
+}
+
+.hero-left h1{
+
+    color:var(--text);
+
+    font-size:25px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+
+}
+
+.hero-left p{
+
+    color:var(--text-light);
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+
+.hero-right{
+
+    z-index:2;
+
+}
+
+
+/*======================================================
+                    BOTONES
+======================================================*/
+
+.btn-primary{
+
+    background:
+
+            linear-gradient(135deg,
+            #1976D2,
+            #1565C0);
+
+    color:white;
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.25s;
+
+    box-shadow:
+
+            0 12px 24px rgba(21,101,192,.20);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+            0 16px 35px rgba(21,101,192,.30);
+
+}
+
+
+/*======================================================
+                    TOOLBAR
+======================================================*/
+
+.toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+    gap:20px;
+
+}
+
+
+.search-box{
+
+    width:300px;
+
+    height:48px;
+
+    background:white;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 20px;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+}
+
+.search-box i{
+
+    color:var(--primary);
+
+    font-size:17px;
+
+    margin-right:14px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+
+.search-box input::placeholder{
+
+    color:#98A5B8;
+
+}
+
+
+/*======================================================
+                    FILTRO
+======================================================*/
+
+.btn-filter{
+
+    height:58px;
+
+    padding:0 22px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+    font-weight:700;
+
+    transition:.20s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.btn-filter:hover{
+
+    border-color:#1565C0;
+
+}
+
+
+/*======================================================
+                    CARD
+======================================================*/
+
+.admin-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*======================================================
+                TITULOS
+======================================================*/
+
+.section-title{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    margin-bottom:25px;
+
+}
+
+
+/*======================================================
+                    BADGES
+======================================================*/
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 15px;
+
+    border-radius:40px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.badge-primary{
+
+    background:#EAF3FF;
+
+    color:#1565C0;
+
+}
+
+.badge-success{
+
+    background:#E8F7ED;
+
+    color:#2E7D32;
+
+}
+
+.badge-warning{
+
+    background:#FFF4E5;
+
+    color:#FB8C00;
+
+}
+
+.badge-danger{
+
+    background:#FFEAEA;
+
+    color:#D32F2F;
+
+}
+
+/*======================================================
+                    LISTADO
+======================================================*/
+
+.equipos-card{
+
+    background:white;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+}
+
+
+/*======================================================
+                CABECERA LISTADO
+======================================================*/
+
+.equipos-header{
+
+    display:grid;
+
+    grid-template-columns:
+        90px
+        minmax(250px, 2fr)
+        120px
+        120px
+        140px;
+
+    width:100%;
+
+    padding:16px 24px;
+
+    align-items:center;
+
+    background:#F7FAFE;
+
+    border-bottom:1px solid var(--border);
+
+    color:#7A8BA3;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+    box-sizing:border-box;
+
+}
+
+
+/*======================================================
+                    FILAS
+======================================================*/
+
+.equipo-row{
+
+
+    grid-template-columns:
+        90px
+        minmax(250px, 2fr)
+        120px
+        120px
+        140px;
+
+    width:100%;
+
+    padding:12px 24px;
+
+    align-items:center;
+
+    border-bottom:1px solid #EEF3F9;
+
+    transition:.25s;
+
+    background:white;
+
+    box-sizing:border-box;
+
+}
+
+.equipo-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.equipo-row:hover{
+
+    background:#F9FBFF;
+
+}
+
+
+/*======================================================
+                BANDERA
+======================================================*/
+
+.equipo-bandera{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.bandera{
+
+    width:56px;
+
+    height:38px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    border:1px solid #E6EDF6;
+
+    box-shadow:
+
+            0 5px 12px rgba(0,0,0,.08);
+
+}
+
+
+/*======================================================
+                NOMBRE
+======================================================*/
+
+.equipo-nombre{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+
+/*======================================================
+                FIFA
+======================================================*/
+
+.equipo-fifa{
+
+    font-size:15px;
+
+    font-weight:800;
+
+    color:#1565C0;
+
+    letter-spacing:1px;
+
+}
+
+
+/*======================================================
+                GRUPO
+======================================================*/
+
+.grupo-pill{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:32px;
+
+    height:26px;
+
+    padding:0 14px;
+
+    border-radius:40px;
+
+    background:#EEF5FF;
+
+    color:#1565C0;
+
+    font-weight:700;
+
+    font-size:12px;
+
+}
+
+
+/*======================================================
+                ACCIONES
+======================================================*/
+
+.equipo-acciones{
+
+    display:flex;
+
+    justify-content:center !important;;
+
+    gap:10px;
+
+}
+
+.btn-editar,
+.btn-eliminar{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:16px;
+
+}
+
+.btn-editar{
+
+    background:#EEF5FF;
+
+    color:#1565C0;
+
+}
+
+.btn-editar:hover{
+
+    background:#1565C0;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+.btn-eliminar{
+
+    background:#FFF1F1;
+
+    color:#E53935;
+
+}
+
+.btn-eliminar:hover{
+
+    background:#E53935;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+
+/*======================================================
+                FOOTER
+======================================================*/
+
+.footer-listado{
+
+    margin-top:22px;
+
+    display:grid;
+
+    grid-template-columns:1fr auto 1fr;
+
+    align-items:center;
+
+}
+
+.footer-listado span{
+
+    color:#738399;
+    justify-self:start;
+    font-size:14px;
+
+}
+
+
+/*======================================================
+                PAGINACION
+======================================================*/
+
+.pagination{
+
+    display:flex;
+    justify-self:center;
+    gap:8px;
+
+}
+
+.pagination button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    color:#66758A;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+    font-weight:700;
+
+}
+
+.pagination button:hover{
+
+    background:#EEF5FF;
+
+    color:#1565C0;
+
+}
+
+.pagination .active{
+
+    background:#1565C0;
+
+    color:white;
+
+    border-color:#1565C0;
+
+}
+
+
+/*======================================================
+                SCROLL
+======================================================*/
+
+.equipos-card{
+
+    overflow-x:auto;
+
+}
+
+
+/*======================================================
+                RESPONSIVE
+======================================================*/
+
+@media(max-width:1200px){
+
+.equipos-header,
+
+.equipo-row{
+
+    min-width:850px;
+    box-sizing:border-box !important;
+
+}
+
+}
+
+/*======================================================
+                    MODAL
+======================================================*/
+
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(9,30,66,.35);
+
+    backdrop-filter:blur(6px);
+
+    z-index:9999;
+
+    animation:fadeOverlay .25s;
+
+}
+
+.modal-overlay.show{
+
+    display:flex;
+
+}
+
+@keyframes fadeOverlay{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.modal{
+
+    width:640px;
+
+    max-width:95%;
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+            0 25px 70px rgba(0,0,0,.22);
+
+    animation:modalShow .30s;
+
+}
+
+@keyframes modalShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-30px) scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+
+/*======================================================
+                HEADER
+======================================================*/
+
+.modal-header{
+
+    padding:28px 35px;
+
+    background:linear-gradient(
+            135deg,
+            #1976D2,
+            #1565C0);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.modal-header h2{
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+.modal-header button{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+}
+
+.modal-header button:hover{
+
+    background:white;
+
+    color:#1565C0;
+
+}
+
+
+/*======================================================
+                FORM
+======================================================*/
+
+#formEquipo{
+
+    padding:35px;
+
+}
+
+.campo{
+
+    margin-bottom:24px;
+
+}
+
+.campo label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#4B5C74;
+
+    margin-bottom:10px;
+
+}
+
+.campo input{
+
+    width:100%;
+
+    height:56px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    color:var(--text);
+
+    transition:.20s;
+
+    background:white;
+
+}
+
+.campo input:focus{
+
+    outline:none;
+
+    border-color:#1565C0;
+
+    box-shadow:
+
+            0 0 0 4px rgba(21,101,192,.10);
+
+}
+
+
+/*======================================================
+            FILE
+======================================================*/
+
+input[type=file]{
+
+    padding:15px !important;
+
+    cursor:pointer;
+
+}
+
+
+/*======================================================
+            PREVIEW
+======================================================*/
+
+.preview{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:25px 0;
+
+}
+
+.preview img{
+
+    width:200px;
+
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:2px solid #E7EEF7;
+
+    background:#F8FBFF;
+
+    box-shadow:
+
+            0 12px 25px rgba(0,0,0,.08);
+
+}
+
+
+/*======================================================
+            BOTONES
+======================================================*/
+
+.acciones{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    margin-top:35px;
+
+}
+
+.btn-cancelar{
+
+    background:#EFF3F8;
+
+    color:#64748B;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:15px 26px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+}
+
+.btn-cancelar:hover{
+
+    background:#E2E8F0;
+
+}
+
+.btn-guardar{
+
+    background:linear-gradient(
+            135deg,
+            #1976D2,
+            #1565C0);
+
+    color:white;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:15px 28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+    box-shadow:
+
+            0 10px 22px rgba(21,101,192,.22);
+
+}
+
+.btn-guardar:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/*======================================================
+            SCROLL
+======================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#BFD4EE;
+
+    border-radius:30px;
+
+}
+
+
+/*======================================================
+            RESPONSIVE
+======================================================*/
+
+@media(max-width:900px){
+
+.hero-card{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+}
+
+.toolbar{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.search-box{
+
+    width:100%;
+
+}
+
+.btn-filter{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.footer-listado{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.modal{
+
+    width:95%;
+
+}
+
+}
+
+.equipos-card{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 auto !important;
+}
+
+/*======================================================
+            AJUSTE FINAL TABLA EQUIPOS
+======================================================*/
+
+.equipos-header,
+.equipo-row{
+
+    grid-template-columns:
+        90px
+        1.5fr
+        90px
+        90px
+        120px !important;
+
+    align-items:center !important;
+
+}
+
+.equipo-row{
+
+    padding:12px 28px !important;
+
+}
+
+.equipo-bandera{
+
+    justify-content:center !important;
+
+}
+
+.equipo-nombre{
+
+    justify-self:start !important;
+
+    font-size:15px !important;
+
+    font-weight:700 !important;
+
+}
+
+.equipo-fifa{
+
+    justify-self:center !important;
+
+    font-size:15px !important;
+
+}
+
+.grupo-pill{
+
+    justify-self:center !important;
+
+}
+
+.equipo-acciones{
+
+    justify-self:center !important;
+
+    display:flex !important;
+
+    gap:10px !important;
+
+}
+
+.equipos-header div:nth-child(1){
+
+    text-align:center !important;
+
+}
+
+.equipos-header div:nth-child(2){
+
+    text-align:left !important;
+
+}
+
+.equipos-header div:nth-child(3),
+.equipos-header div:nth-child(4),
+.equipos-header div:nth-child(5){
+
+    text-align:center !important;
+
+}
+
+
+
+

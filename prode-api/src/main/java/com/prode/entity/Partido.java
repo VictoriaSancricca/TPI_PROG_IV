@@ -25,6 +25,10 @@ public class Partido {
     private LocalDateTime fechaHora;
 
     @ManyToOne
+    @JoinColumn(name = "grupo_id")
+    private Grupo grupo;
+
+    @ManyToOne
     @JoinColumn(name = "fecha_id")
     private Fecha fecha;
 
@@ -116,6 +120,14 @@ public class Partido {
 
     public void setTendencia(Tendencia tendencia) {
         this.tendencia = tendencia;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
 
     

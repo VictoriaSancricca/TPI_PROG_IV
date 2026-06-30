@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,11 @@ public class EquipoController {
         return equipoService.listar();
     }
 
+    @GetMapping("/grupo/{id}")
+    public List<Equipo> listarPorGrupo(@PathVariable Long id){
+        return equipoService.listarPorGrupo(id);
+    }
+
     @GetMapping("/{id}")
     public Equipo buscarPorId(@PathVariable Long id) {
         return equipoService.buscarPorId(id);
@@ -44,5 +50,13 @@ public class EquipoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         equipoService.eliminar(id);
+    }
+    
+    @PutMapping("/{id}")
+    public Equipo editar(
+            @PathVariable Long id,
+            @RequestBody EquipoRequest request){
+
+        return equipoService.editar(id, request);
     }
 }

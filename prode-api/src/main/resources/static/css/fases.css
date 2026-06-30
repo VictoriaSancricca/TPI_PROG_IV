@@ -1,0 +1,346 @@
+/*======================================================
+                TABLA DE POSICIONES
+======================================================*/
+
+.section-title-admin{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.section-title-admin h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#163A63;
+
+    font-size:22px;
+
+}
+
+#grupoSeleccionado{
+
+    min-width:170px;
+
+}
+
+/* Encabezado */
+
+.equipos-header,
+.equipo-row{
+
+    display:grid !important;
+
+    grid-template-columns:
+        .6fr
+        2.7fr
+        .7fr
+        .7fr
+        .7fr
+        .7fr
+        .7fr
+        .7fr
+        .7fr
+        .9fr !important;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+}
+
+.equipos-header{
+
+    font-weight:700;
+
+    color:#5F6B7A;
+
+    border-bottom:1px solid #E8EDF5;
+
+}
+
+.equipo-row{
+
+    border-bottom:1px solid #EEF2F7;
+
+    transition:.20s;
+
+}
+
+.equipo-row:hover{
+
+    background:#F8FBFF;
+
+}
+
+.equipos-header > div,
+.equipo-row > div{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Equipo */
+
+.partido-equipo{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:12px;
+
+    font-weight:600;
+
+    color:#163A63;
+
+}
+
+.bandera{
+
+    width:34px;
+
+    height:24px;
+
+    object-fit:cover;
+
+    border-radius:5px;
+
+    border:1px solid #E6ECF4;
+
+}
+
+/* Posición */
+
+.equipo-row:first-child{
+
+    background:#EEF7EE;
+
+}
+
+.equipo-row:nth-child(2){
+
+    background:#F6FAFF;
+
+}
+
+.equipo-row:first-child div:first-child,
+.equipo-row:nth-child(2) div:first-child{
+
+    font-weight:800;
+
+    color:#1565C0;
+
+    font-size:18px;
+
+}
+
+/* Puntos */
+
+.equipo-row div:last-child{
+
+    font-weight:800;
+
+    color:#1565C0;
+
+    font-size:16px;
+
+}
+
+/*======================================================
+                    FASES
+======================================================*/
+
+.fase-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+    margin-top:10px;
+
+}
+
+.fase-card{
+
+    background:white;
+
+    border:2px solid #E8EDF5;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+.fase-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.fase-card i{
+
+    font-size:34px;
+
+    color:#1565C0;
+
+    margin-bottom:14px;
+
+}
+
+.fase-card h3{
+
+    color:#163A63;
+
+    font-size:18px;
+
+}
+
+.fase-card.active{
+
+    border-color:#1565C0;
+
+    background:#EEF6FF;
+
+}
+
+.acciones-fases{
+
+    margin-top:28px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+/*======================================================
+                RESPONSIVE
+======================================================*/
+
+@media(max-width:1100px){
+
+.fase-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.fase-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.section-title-admin{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+}
+
+/*======================================
+        CLASIFICADOS
+======================================*/
+
+.equipo-row.clasificado{
+
+    border-left:6px solid #27AE60;
+
+    background:#F5FFF8;
+
+}
+
+.posicion{
+
+    display:flex !important;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+}
+
+.posicion span{
+
+    color:#163A63;
+
+}
+
+.puntos{
+
+    font-size:18px;
+
+    font-weight:800;
+
+    color:#1565C0;
+
+}
+
+.tabla-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:18px;
+
+    color:#5F6B7A;
+
+    font-size:14px;
+
+}
+
+.leyenda-clasifica{
+
+    width:24px;
+
+    height:6px;
+
+    border-radius:20px;
+
+    background:#27AE60;
+
+}

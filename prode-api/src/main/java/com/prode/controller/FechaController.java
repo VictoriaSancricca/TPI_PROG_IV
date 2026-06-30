@@ -26,7 +26,7 @@ public class FechaController {
     }
 
     @GetMapping
-    public List<Fecha> listar() {
+    public List<Fecha> listar(){
         return fechaService.listar();
     }
 
@@ -54,4 +54,6 @@ public class FechaController {
     public void eliminar(@PathVariable Long id) {
         fechaService.eliminar(id);
     }
+
+   
 }

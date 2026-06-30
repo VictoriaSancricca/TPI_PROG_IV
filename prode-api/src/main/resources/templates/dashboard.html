@@ -9,6 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard-home.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -78,6 +79,9 @@
             <div>
                 <h1 id="saludo">¡Hola! 👋</h1>
                 <p>Bienvenida a Predicta 2026</p>
+                <p class="fraseDashboard">
+                    "Cada partido es una nueva oportunidad."
+                </p>
             </div>
 
             <img src="/img/world-cup.png" class="cup">
@@ -133,25 +137,37 @@
 
         </section>
 
-        <section class="matches">
+        <div class="dashboard-grid">
 
-            <div class="section-title">
-                Próximos partidos
-            </div>
+            <section class="matches">
 
-            <div id="partidosContainer"></div>
+                <div class="section-header">
 
-        </section>
+                    <h2>Próximos partidos</h2>
 
-        <section class="ranking">
+                    <a href="/partidos-view">Ver todos</a>
 
-            <div class="section-title">
-                Ranking General
-            </div>
+                </div>
 
-            <div id="rankingContainer"></div>
+                <div id="partidosContainer"></div>
 
-        </section>
+            </section>
+
+            <section class="ranking">
+
+                <div class="section-header">
+
+                    <h2>Ranking General</h2>
+
+                    <a href="/ranking">Ver ranking</a>
+
+                </div>
+
+                <div id="rankingContainer"></div>
+
+            </section>
+
+        </div>
 
     </main>
 

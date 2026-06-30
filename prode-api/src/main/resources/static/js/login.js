@@ -52,7 +52,15 @@ document
                 showConfirmButton: false
             });
 
-            window.location.href = "/dashboard";
+            if(data.rol === "ROLE_ADMIN"){
+
+                window.location.href="/admin";
+
+            }else{
+
+                window.location.href="/dashboard";
+
+            }
 
         } catch (error) {
 

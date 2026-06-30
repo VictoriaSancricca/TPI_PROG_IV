@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.prode.dto.PartidoRequest;
 import com.prode.dto.ResultadoRequest;
+
 import com.prode.entity.Equipo;
 import com.prode.entity.Fecha;
 import com.prode.entity.Partido;
@@ -19,6 +20,8 @@ import com.prode.repository.PartidoRepository;
 import com.prode.repository.PronosticoRepository;
 import com.prode.repository.UsuarioRepository;
 import com.prode.enums.Tendencia;
+import com.prode.entity.Grupo;
+import com.prode.repository.GrupoRepository;
 
 @Service
 public class PartidoService {
@@ -27,20 +30,23 @@ public class PartidoService {
     private final FechaRepository fechaRepository;
     private final EquipoRepository equipoRepository;
     private final PronosticoRepository pronosticoRepository;
-   private final UsuarioRepository usuarioRepository;
-    
+    private final UsuarioRepository usuarioRepository;
+    private final GrupoRepository grupoRepository;
+
      public PartidoService(
         PartidoRepository partidoRepository,
         FechaRepository fechaRepository,
         EquipoRepository equipoRepository,
         PronosticoRepository pronosticoRepository,
-        UsuarioRepository usuarioRepository) {
+        UsuarioRepository usuarioRepository,
+        GrupoRepository grupoRepository) {
 
         this.partidoRepository = partidoRepository;
         this.fechaRepository = fechaRepository;
         this.equipoRepository = equipoRepository;
         this.pronosticoRepository = pronosticoRepository;
         this.usuarioRepository = usuarioRepository;
+        this.grupoRepository = grupoRepository;
     }
 
     public List<Partido> listar() {
@@ -64,9 +70,9 @@ public class PartidoService {
                     "Local y visitante no pueden ser el mismo equipo");
         }
 
-        Fecha fecha = fechaRepository.findById(request.getFechaId())
-                .orElseThrow(() ->
-                        new RuntimeException("Fecha no encontrada"));
+        Grupo grupo = grupoRepository.findById(request.getGrupoId())
+        .orElseThrow(() ->
+                new RuntimeException("Grupo no encontrado"));
 
         Equipo local = equipoRepository.findById(request.getLocalId())
                 .orElseThrow(() ->
@@ -76,9 +82,28 @@ public class PartidoService {
                 .orElseThrow(() ->
                         new RuntimeException("Equipo visitante no encontrado"));
 
+
+        // ================= VALIDACIONES =================
+
+            if(local.getGrupo() == null || visitante.getGrupo() == null){
+
+                throw new RuntimeException(
+                        "Los equipos deben pertenecer a un grupo");
+
+            }
+
+            if(!local.getGrupo().getId().equals(grupo.getId())
+                    || !visitante.getGrupo().getId().equals(grupo.getId())){
+
+                throw new RuntimeException(
+                        "Los equipos no pertenecen al grupo seleccionado");
+
+            }
+
+
         Partido partido = new Partido();
 
-        partido.setFecha(fecha);
+        partido.setGrupo(grupo);
         partido.setLocal(local);
         partido.setVisitante(visitante);
         partido.setFechaHora(request.getFechaHora());
@@ -205,4 +230,29 @@ public class PartidoService {
         return partidoRepository.findByEstadoOrderByFechaHoraAsc(
                 EstadoPartido.POR_JUGARSE);
     }
+
+    public Partido editar(Long id, PartidoRequest request){
+
+        Partido partido = buscarPorId(id);
+
+        Grupo grupo = grupoRepository.findById(request.getGrupoId())
+                .orElseThrow(() ->
+                        new RuntimeException("Grupo no encontrado"));
+
+        Equipo local = equipoRepository.findById(request.getLocalId())
+                .orElseThrow(() ->
+                        new RuntimeException("Equipo local no encontrado"));
+
+        Equipo visitante = equipoRepository.findById(request.getVisitanteId())
+                .orElseThrow(() ->
+                        new RuntimeException("Equipo visitante no encontrado"));
+
+        partido.setGrupo(grupo);
+        partido.setLocal(local);
+        partido.setVisitante(visitante);
+        partido.setFechaHora(request.getFechaHora());
+
+        return partidoRepository.save(partido);
+    }
+
 }

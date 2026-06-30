@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Grupos - Panel Administrador</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/admin-ui.css">
+    <link rel="stylesheet" href="/css/grupos.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-trophy-fill"></i>
+
+            <div>
+
+                <h2>PREDICTA</h2>
+
+                <span>ADMINISTRADOR</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="/admin" class="menu">
+
+                <i class="bi bi-house-fill"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="/admin/equipos" class="menu">
+
+                <i class="bi bi-flag-fill"></i>
+
+                Equipos
+
+            </a>
+
+            <a href="/admin/grupos" class="menu active">
+
+                <i class="bi bi-diagram-3-fill"></i>
+
+                Grupos
+
+            </a>
+
+            <a href="/admin/partidos" class="menu">
+
+                <i class="bi bi-calendar-event-fill"></i>
+
+                Partidos
+
+            </a>
+
+            <a href="/admin/resultados" class="menu">
+
+                <i class="bi bi-trophy-fill"></i>
+
+                Resultados
+
+            </a>
+
+            <a href="/admin/fases" class="menu">
+
+                <i class="bi bi-arrow-repeat"></i>
+
+                Fases
+
+            </a>
+
+            <a href="/ranking" class="menu">
+
+                <i class="bi bi-bar-chart-fill"></i>
+
+                Ranking
+
+            </a>
+
+        </nav>
+
+        <a href="#" id="logout" class="logout">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            Cerrar sesión
+
+        </a>
+
+    </aside>
+
+    <button id="toggleSidebar" class="toggle-sidebar">
+
+        <i class="bi bi-list"></i>
+
+    </button>
+
+    <!-- ================= CONTENIDO ================= -->
+
+    <main class="content">
+
+        <section class="hero-card">
+
+            <div class="hero-left">
+
+                <div class="hero-icon">
+
+                    <i class="bi bi-diagram-3-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h1>Grupos del Mundial</h1>
+
+                    <p>
+
+                        Administrá los grupos y visualizá las posiciones.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <button
+                        class="btn-primary"
+                        id="btnNuevoGrupo">
+
+                    <i class="bi bi-plus-circle-fill"></i>
+
+                    Nuevo Grupo
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- BUSCADOR -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+
+                        id="buscarGrupo"
+
+                        placeholder="Buscar grupo...">
+
+            </div>
+
+        </section>
+
+        <!-- CARDS -->
+
+        <section
+
+                class="grupos-grid"
+
+                id="contenedorGrupos">
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ================= MODAL ================= -->
+
+<div
+        class="modal-overlay"
+        id="modalGrupo">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2 id="tituloModal">
+
+                Nuevo Grupo
+
+            </h2>
+
+            <button id="cerrarModal">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+        <form id="formGrupo">
+
+            <input
+
+                    type="hidden"
+
+                    id="idGrupo">
+
+            <div class="campo">
+
+                <label>
+
+                    Nombre del Grupo
+
+                </label>
+
+                <input
+
+                        id="nombre"
+
+                        maxlength="1"
+
+                        placeholder="Ej: A"
+
+                        required>
+
+            </div>
+
+            <div class="acciones">
+
+                <button
+
+                        type="button"
+
+                        class="btn-cancelar"
+
+                        id="btnCancelar">
+
+                    Cancelar
+
+                </button>
+
+                <button
+
+                        class="btn-guardar"
+
+                        type="submit">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Guardar
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="/js/grupos.js"></script>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>

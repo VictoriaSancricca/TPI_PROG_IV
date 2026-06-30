@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resultados - Panel Administrador</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard-home.css">
+    <link rel="stylesheet" href="/css/admin-ui.css">
+    <link rel="stylesheet" href="/css/resultadosAdmin.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-trophy-fill"></i>
+
+            <div>
+
+                <h2>PREDICTA</h2>
+
+                <span>ADMINISTRADOR</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="/admin" class="menu">
+                <i class="bi bi-house-fill"></i>
+                Dashboard
+            </a>
+
+            <a href="/admin/equipos" class="menu">
+                <i class="bi bi-flag-fill"></i>
+                Equipos
+            </a>
+
+            <a href="/admin/grupos" class="menu">
+                <i class="bi bi-diagram-3-fill"></i>
+                Grupos
+            </a>
+
+            <a href="/admin/partidos" class="menu">
+                <i class="bi bi-calendar-event-fill"></i>
+                Partidos
+            </a>
+
+            <a href="/admin/resultados" class="menu active">
+                <i class="bi bi-trophy-fill"></i>
+                Resultados
+            </a>
+
+            <a href="/admin/fases" class="menu">
+                <i class="bi bi-arrow-repeat"></i>
+                Fases
+            </a>
+
+            <a href="/ranking" class="menu">
+                <i class="bi bi-bar-chart-fill"></i>
+                Ranking
+            </a>
+
+        </nav>
+
+        <a href="#" id="logout" class="logout">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            Cerrar sesión
+
+        </a>
+
+    </aside>
+
+    <button id="toggleSidebar" class="toggle-sidebar">
+
+        <i class="bi bi-list"></i>
+
+    </button>
+
+    <main class="content">
+
+        <!-- HERO -->
+
+        <section class="hero-card">
+
+            <div class="hero-left">
+
+                <div class="hero-icon">
+
+                    <i class="bi bi-trophy-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h1>Gestión de Resultados</h1>
+
+                    <p>
+
+                        Registrá los resultados oficiales de cada partido del Mundial 2026.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <button class="btn-primary" disabled>
+
+                    <i class="bi bi-trophy-fill"></i>
+
+                    Resultados
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- TOOLBAR -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                        id="buscarResultado"
+                        type="text"
+                        placeholder="Buscar partido...">
+
+            </div>
+
+        </section>
+
+        <!-- TABLA -->
+
+        <section class="equipos-card">
+
+            <div class="equipos-header">
+
+                <div>Grupo</div>
+
+                <div>Partido</div>
+
+                <div>Resultado</div>
+
+                <div>Estado</div>
+
+                <div>Acción</div>
+
+            </div>
+
+            <div id="tablaResultados">
+
+            </div>
+
+        </section>
+
+        <section class="footer-listado">
+
+            <span id="contadorResultados">
+
+                Mostrando 0 partidos
+
+            </span>
+
+            <div class="pagination">
+
+                <button>
+
+                    <i class="bi bi-chevron-left"></i>
+
+                </button>
+
+                <button class="active">1</button>
+
+                <button>2</button>
+
+                <button>3</button>
+
+                <button>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ========================= MODAL ========================= -->
+
+<div class="modal-overlay" id="modalResultado">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2 id="tituloModal">
+
+                Registrar Resultado
+
+            </h2>
+
+            <button id="cerrarModal">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+        <form id="formResultado">
+
+            <input
+                    type="hidden"
+                    id="idPartido">
+
+            <div class="resultado-modal">
+
+        <div class="equipo-resultado">
+
+            <img
+                    id="banderaLocal"
+                    class="bandera-modal"
+                    src="/img/no-image.png">
+
+            <h3 id="nombreLocal">
+
+                Equipo Local
+
+            </h3>
+
+            <input
+                    type="number"
+                    id="golesLocal"
+                    min="0"
+                    required>
+
+        </div>
+
+        <div class="vs-modal">
+
+            VS
+
+        </div>
+
+        <div class="equipo-resultado">
+
+            <img
+                    id="banderaVisitante"
+                    class="bandera-modal"
+                    src="/img/no-image.png">
+
+            <h3 id="nombreVisitante">
+
+                Equipo Visitante
+
+            </h3>
+
+            <input
+                    type="number"
+                    id="golesVisitante"
+                    min="0"
+                    required>
+
+        </div>
+
+    </div>
+
+            <div class="acciones">
+
+                <button
+                        type="button"
+                        class="btn-cancelar"
+                        id="btnCancelar">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                        class="btn-guardar"
+                        type="submit">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Guardar Resultado
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="/js/resultadosAdmin.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
