@@ -4,11 +4,14 @@ const grupoSelect = document.getElementById("grupoSeleccionado");
 
 const tabla = document.getElementById("tablaPosiciones");
 
+const btnGenerarFase = document.getElementById("btnGenerarFase");
+
 let grupos = [];
 
 document.addEventListener("DOMContentLoaded", () => {
 
     cargarGrupos();
+    btnGenerarFase.addEventListener("click", generarFase);
 
 });
 
@@ -142,6 +145,78 @@ function renderTabla(lista){
         `;
 
     });
+
+}
+
+async function generarFase() {
+
+    const confirmar = await Swal.fire({
+
+        title: "¿Generar siguiente fase?",
+
+        text: "Se crearán automáticamente los partidos de la siguiente fase del Mundial.",
+
+        icon: "question",
+
+        showCancelButton: true,
+
+        confirmButtonText: "Generar",
+
+        cancelButtonText: "Cancelar",
+
+        confirmButtonColor: "#1565C0"
+
+    });
+
+    if (!confirmar.isConfirmed) return;
+
+    try {
+
+        const response = await fetch(
+
+            "http://localhost:8081/fases/generar",
+
+            {
+
+                method: "POST"
+
+            }
+
+        );
+
+        if (!response.ok) {
+
+            throw new Error();
+
+        }
+
+        await Swal.fire({
+
+            icon: "success",
+
+            title: "¡Fase generada!",
+
+            text: "La siguiente fase fue generada correctamente.",
+
+            confirmButtonColor: "#1565C0"
+
+        });
+
+        location.reload();
+
+    } catch (e) {
+
+        Swal.fire({
+
+            icon: "error",
+
+            title: "Error",
+
+            text: "No fue posible generar la siguiente fase."
+
+        });
+
+    }
 
 }
 

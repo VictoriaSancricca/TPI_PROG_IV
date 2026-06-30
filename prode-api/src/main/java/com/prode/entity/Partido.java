@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import com.prode.enums.FaseMundial;
 
 @Entity
 @Table(name = "partidos")
@@ -46,6 +47,9 @@ public class Partido {
 
     @Enumerated(EnumType.STRING)
     private EstadoPartido estado;
+
+    @Enumerated(EnumType.STRING)
+    private FaseMundial fase;
 
     @Enumerated(EnumType.STRING)
     private Tendencia tendencia;
@@ -130,5 +134,12 @@ public class Partido {
         this.grupo = grupo;
     }
 
+    public FaseMundial getFase() {
+        return fase;
+    }
+
+    public void setFase(FaseMundial fase) {
+        this.fase = fase;
+    }
     
 }

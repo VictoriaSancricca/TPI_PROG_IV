@@ -30,6 +30,8 @@ const nombreVisitante = document.getElementById("nombreVisitante");
 
 const buscar = document.getElementById("buscarResultado");
 
+const filtroFase = document.getElementById("filtroFase");
+
 const banderaLocal = document.getElementById("banderaLocal");
 
 const banderaVisitante = document.getElementById("banderaVisitante");
@@ -45,12 +47,22 @@ document.getElementById("btnCancelar")
 form.addEventListener("submit", guardarResultado);
 
 buscar.addEventListener("keyup", filtrarResultados);
-
+filtroFase.addEventListener("change", cargarPartidos);
 cargarPartidos();
 
 async function cargarPartidos(){
 
-    const response = await fetch(API);
+    let url = API;
+
+    const fase = filtroFase.value;
+
+    if(fase !== ""){
+
+        url += "?fase=" + fase;
+
+    }
+
+    const response = await fetch(url);
 
     partidos = await response.json();
 
@@ -163,7 +175,7 @@ function filtrarResultados(){
 
         ||
 
-        p.grupo.nombre.toLowerCase().includes(texto)
+        (p.grupo?.nombre ?? "").toLowerCase().includes(texto)
 
     );
 

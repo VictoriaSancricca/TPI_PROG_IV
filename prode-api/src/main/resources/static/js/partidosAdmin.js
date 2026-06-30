@@ -408,40 +408,51 @@ async function guardarPartido(e){
 
 }
 
-async function editar(id){
+async function editar(id) {
 
-    const partido = partidos.find(
+    const partido = partidos.find(p => p.id === id);
 
-        p=>p.id===id
+    console.log(partido);
 
-    );
-
-    if(!partido){
-
+    if (!partido) {
+        Swal.fire({
+            icon: "error",
+            title: "No se encontró el partido"
+        });
         return;
+    }
+
+    tituloModal.innerText = "Editar Partido";
+
+    idPartido.value = partido.id;
+
+    if (partido.grupo) {
+
+        grupo.value = partido.grupo.id;
+
+        await cargarEquipos(partido.grupo.id);
+
+    } else {
+
+        grupo.value = "";
+
+        await cargarEquipos("");
 
     }
 
-    tituloModal.innerText="Editar Partido";
+    if (partido.local) {
+        local.value = partido.local.id;
+    }
 
-    idPartido.value=partido.id;
+    if (partido.visitante) {
+        visitante.value = partido.visitante.id;
+    }
 
-    grupo.value=partido.grupo.id;
-
-    await cargarEquipos(
-
-        partido.grupo.id
-
-    );
-
-    local.value=partido.local.id;
-
-    visitante.value=partido.visitante.id;
-
-    fechaHora.value=partido.fechaHora.substring(0,16);
+    if (partido.fechaHora) {
+        fechaHora.value = partido.fechaHora.substring(0, 16);
+    }
 
     abrirModal();
-
 }
 
 async function eliminar(id){

@@ -2,6 +2,7 @@ package com.prode.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,13 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prode.dto.PartidoRequest;
-import com.prode.entity.Partido;
-import com.prode.service.PartidoService;
-
 import com.prode.dto.ResultadoRequest;
+import com.prode.entity.Partido;
+import com.prode.enums.FaseMundial;
+import com.prode.service.PartidoService;
 
 @RestController
 @RequestMapping("/partidos")
@@ -28,20 +30,24 @@ public class PartidoController {
     }
 
     @GetMapping
-    public List<Partido> listar() {
+    public List<Partido> listar(
+            @RequestParam(required = false) FaseMundial fase) {
+
+        if (fase != null) {
+
+            return partidoService.listarPorFase(fase);
+
+        }
+
         return partidoService.listar();
+
     }
 
     @GetMapping("/{id}")
     public Partido buscarPorId(@PathVariable Long id) {
+
         return partidoService.buscarPorId(id);
-    }
 
-    @GetMapping("/fecha/{fechaId}")
-    public List<Partido> listarPorFecha(
-            @PathVariable Long fechaId) {
-
-        return partidoService.listarPorFecha(fechaId);
     }
 
     @PostMapping
@@ -49,11 +55,14 @@ public class PartidoController {
             @RequestBody PartidoRequest request) {
 
         return partidoService.guardar(request);
+
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
+
         partidoService.eliminar(id);
+
     }
 
     @PostMapping("/{id}/resultado")
@@ -61,21 +70,32 @@ public class PartidoController {
             @PathVariable Long id,
             @RequestBody ResultadoRequest request) {
 
-        return partidoService.registrarResultado(
-                id,
-                request);
+        return partidoService.registrarResultado(id, request);
+
     }
 
     @GetMapping("/proximos")
     public List<Partido> listarProximos() {
+
         return partidoService.listarPorJugar();
+
     }
 
     @PutMapping("/{id}")
     public Partido editar(
             @PathVariable Long id,
-            @RequestBody PartidoRequest request){
+            @RequestBody PartidoRequest request) {
 
         return partidoService.editar(id, request);
+
     }
+
+    @PostMapping("/simular")
+    public ResponseEntity<Void> simularPartidos() {
+
+        partidoService.simularPartidosPendientes();
+
+        return ResponseEntity.ok().build();
+    }
+
 }

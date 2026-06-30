@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.prode.dto.GrupoRequest;
 import com.prode.entity.Grupo;
+import com.prode.repository.EquipoRepository;
 import com.prode.repository.GrupoRepository;
 import java.util.ArrayList;
 
@@ -16,19 +17,23 @@ import com.prode.dto.TablaPosicionesDTO;
 import com.prode.entity.Partido;
 import com.prode.enums.EstadoPartido;
 import com.prode.repository.PartidoRepository;
-
+import com.prode.entity.Equipo;
+import com.prode.repository.EquipoRepository;
 
 @Service
 public class GrupoService {
 
     private final GrupoRepository grupoRepository;
     private final PartidoRepository partidoRepository;
-    
+    private final EquipoRepository equipoRepository;
+
     public GrupoService(
-        GrupoRepository grupoRepository,
-        PartidoRepository partidoRepository) {
+            GrupoRepository grupoRepository,
+            EquipoRepository equipoRepository,
+            PartidoRepository partidoRepository) {
 
         this.grupoRepository = grupoRepository;
+        this.equipoRepository = equipoRepository;
         this.partidoRepository = partidoRepository;
     }
 
@@ -231,5 +236,14 @@ public class GrupoService {
         });
 
     }
+
+    public Equipo buscarEquipo(Long id){
+
+        return equipoRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Equipo no encontrado"));
+
+    }
+
 
 }

@@ -25,3 +25,56 @@
     background:white;
 
 }
+
+/*======================================================
+                    TABLA EQUIPOS
+======================================================*/
+
+.equipos-header,
+.equipo-row{
+
+    display:grid !important;
+
+    grid-template-columns:
+        .8fr
+        2.5fr
+        .8fr
+        .8fr
+        1fr !important;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:18px 28px;
+
+}
+
+.equipos-header > div,
+.equipo-row > div{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.equipo-row > div:nth-child(2){
+
+    justify-content:flex-start;
+
+    gap:14px;
+
+    font-weight:600;
+
+    color:#163A63;
+
+}
+
+.equipo-row > div:nth-child(5){
+
+    gap:12px;
+
+}
