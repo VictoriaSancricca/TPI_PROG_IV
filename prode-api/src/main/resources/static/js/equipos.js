@@ -34,6 +34,9 @@ const buscar = document.getElementById("buscarEquipo");
 
 let equipos = [];
 let banderaActual = "";
+let paginaActual = 1;
+
+const equiposPorPagina = 10;
 
 document.getElementById("btnNuevoEquipo")
     .addEventListener("click", nuevoEquipo);
@@ -446,3 +449,58 @@ async function eliminar(id){
 window.editar=editar;
 
 window.eliminar=eliminar;
+
+
+function renderPaginacion(){
+
+    const totalPaginas = Math.ceil(
+        equipos.length / equiposPorPagina
+    );
+
+    const paginacion = document.getElementById("paginacion");
+
+    paginacion.innerHTML = "";
+
+    if(totalPaginas <= 1){
+
+        return;
+
+    }
+
+    for(let i = 1; i <= totalPaginas; i++){
+
+        paginacion.innerHTML += `
+            <button
+                class="${i === paginaActual ? "active" : ""}"
+                onclick="cambiarPagina(${i})">
+
+                ${i}
+
+            </button>
+        `;
+
+    }
+
+}
+
+function cambiarPagina(pagina){
+
+    paginaActual = pagina;
+
+    renderPagina();
+
+}
+
+function renderPagina(){
+
+    const inicio = (paginaActual - 1) * equiposPorPagina;
+
+    const fin = inicio + equiposPorPagina;
+
+    const equiposPagina = equipos.slice(inicio, fin);
+
+    renderEquipos(equiposPagina);
+
+    renderPaginacion();
+
+}

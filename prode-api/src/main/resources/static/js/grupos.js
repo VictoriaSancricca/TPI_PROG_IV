@@ -136,14 +136,6 @@ function renderGrupos(lista){
 
                 <div class="grupo-footer">
 
-                    <button
-                        class="btn-clasificar">
-
-                        <i class="bi bi-arrow-right-circle-fill"></i>
-
-                        Pasar de fase
-
-                    </button>
 
                     <div>
 

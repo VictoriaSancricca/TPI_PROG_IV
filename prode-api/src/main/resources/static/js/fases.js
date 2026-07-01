@@ -11,6 +11,7 @@ let grupos = [];
 document.addEventListener("DOMContentLoaded", () => {
 
     cargarGrupos();
+    cargarFaseActual();
     btnGenerarFase.addEventListener("click", generarFase);
 
 });
@@ -216,5 +217,28 @@ async function generarFase() {
 
     }
 
+    async function cargarFaseActual() {
+
+    const response = await fetch(`${API}/fases/actual`);
+
+    const fase = await response.text();
+
+    document.querySelectorAll(".fase-card").forEach(card => {
+
+        card.classList.remove("active");
+
+    });
+
+    const card = document.querySelector(
+        `.fase-card[data-fase="${fase}"]`
+    );
+
+    if(card){
+
+        card.classList.add("active");
+
+    }
+
+}
 }
 

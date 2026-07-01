@@ -344,3 +344,60 @@
     background:#27AE60;
 
 }
+
+/* Card de la tabla */
+
+.card{
+
+    border-radius: 8px;      /* antes seguramente 25px o 30px */
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Título */
+
+.section-title-admin{
+
+    padding: 20px 24px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #E8EDF5;
+}
+
+/* Encabezado */
+
+.equipos-header{
+
+    background: #F8FAFC;
+    border-bottom: 2px solid #E3EAF3;
+    padding: 16px 24px;
+}
+
+/* Filas */
+
+.equipo-row{
+
+    min-height: 60px;
+    padding: 0 24px;
+}
+
+.equipo-row:last-child{
+
+    border-bottom: none;
+}
+
+.fase-card.completed{
+
+    background:#F4FCF6;
+    border-color:#27AE60;
+}
+
+.fase-card.completed i{
+
+    color:#27AE60;
+}
+
+.fase-card.active{
+
+    background:#EEF6FF;
+    border-color:#1565C0;
+}
