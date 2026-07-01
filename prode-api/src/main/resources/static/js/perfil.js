@@ -11,7 +11,7 @@ cargarPerfil();
 async function cargarPerfil() {
 
     const response = await fetch(
-        `http://localhost:8081/usuarios/${usuario.id}`
+        `/usuarios/${usuario.id}`
     );
 
     const perfil = await response.json();

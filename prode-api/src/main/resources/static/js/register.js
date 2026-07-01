@@ -31,7 +31,7 @@ document
         try {
 
             const response = await fetch(
-                "http://localhost:8081/auth/register",
+                "/auth/register",
                 {
                     method: "POST",
                     headers: {

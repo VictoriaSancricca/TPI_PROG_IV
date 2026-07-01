@@ -16,7 +16,7 @@ let paginaActual = 1;
 async function cargarRanking() {
 
     const response = await fetch(
-        "http://localhost:8081/usuarios/ranking"
+        "/usuarios/ranking"
     );
 
     ranking = await response.json();

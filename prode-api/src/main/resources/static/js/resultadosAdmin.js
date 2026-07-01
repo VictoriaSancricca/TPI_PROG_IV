@@ -8,7 +8,7 @@ if (usuario.rol !== "ROLE_ADMIN") {
     window.location.href = "/dashboard";
 }
 
-const API = "http://localhost:8081/partidos";
+const API = "/partidos";
 
 const tabla = document.getElementById("tablaResultados");
 

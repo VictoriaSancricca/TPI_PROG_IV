@@ -11,7 +11,7 @@ cargarPronosticos();
 async function cargarPronosticos() {
 
     const response = await fetch(
-        `http://localhost:8081/pronosticos/usuario/${usuario.id}`
+        `/pronosticos/usuario/${usuario.id}`
     );
 
     const pronosticos = await response.json();

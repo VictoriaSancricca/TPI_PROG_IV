@@ -8,7 +8,7 @@ if (usuario.rol !== "ROLE_ADMIN") {
     window.location.href = "/dashboard";
 }
 
-const API = "http://localhost:8081/equipos";
+const API = "/equipos";
 
 const tabla = document.getElementById("tablaEquipos");
 
@@ -64,7 +64,7 @@ async function cargarEquipos() {
 async function cargarGrupos(){
 
     const response = await fetch(
-        "http://localhost:8081/grupos"
+        "/grupos"
     );
 
     const grupos = await response.json();

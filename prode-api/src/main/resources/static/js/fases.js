@@ -1,4 +1,4 @@
-const API_GRUPOS = "http://localhost:8081/grupos";
+const API_GRUPOS = "/grupos";
 
 const grupoSelect = document.getElementById("grupoSeleccionado");
 
@@ -174,7 +174,7 @@ async function generarFase() {
 
         const response = await fetch(
 
-            "http://localhost:8081/fases/generar",
+            "/fases/generar",
 
             {
 

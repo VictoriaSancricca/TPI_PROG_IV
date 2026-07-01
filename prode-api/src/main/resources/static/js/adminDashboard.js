@@ -55,16 +55,16 @@ async function cargarDashboard() {
 
     try {
 
-        const usuarios = await fetch("http://localhost:8081/usuarios")
+        const usuarios = await fetch("/usuarios")
             .then(r => r.json());
 
-        const equipos = await fetch("http://localhost:8081/equipos")
+        const equipos = await fetch("/equipos")
             .then(r => r.json());
 
-        const grupos = await fetch("http://localhost:8081/grupos")
+        const grupos = await fetch("/grupos")
             .then(r => r.json());
 
-        const partidos = await fetch("http://localhost:8081/partidos")
+        const partidos = await fetch("/partidos")
             .then(r => r.json());
 
         // Tarjetas superiores

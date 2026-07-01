@@ -8,7 +8,7 @@ cargarPartidos();
 
 async function cargarPartidos() {
 
-    const response = await fetch("http://localhost:8081/partidos");
+    const response = await fetch("/partidos");
 
     partidos = await response.json();
 
@@ -248,7 +248,7 @@ async function guardarPronostico() {
 
         const response = await fetch(
 
-            "http://localhost:8081/pronosticos",
+            "/pronosticos",
 
             {
 

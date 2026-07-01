@@ -8,7 +8,7 @@ if (usuario.rol !== "ROLE_ADMIN") {
     window.location.href = "/dashboard";
 }
 
-const API = "http://localhost:8081/grupos";
+const API = "/grupos";
 
 const contenedor = document.getElementById("contenedorGrupos");
 

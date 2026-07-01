@@ -49,7 +49,7 @@ cargarPartidos();
 async function cargarRanking() {
 
     const response = await fetch(
-        "http://localhost:8081/usuarios/ranking"
+        "/usuarios/ranking"
     );
 
     const ranking = await response.json();
@@ -124,7 +124,7 @@ document
 async function cargarPartidos() {
 
     const response = await fetch(
-        "http://localhost:8081/partidos"
+        "/partidos"
     );
 
     let partidos = await response.json();
