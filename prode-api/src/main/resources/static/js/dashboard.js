@@ -48,9 +48,7 @@ cargarPartidos();
 
 async function cargarRanking() {
 
-    const response = await fetch(
-        "/usuarios/ranking"
-    );
+    const response = await fetch(`${API}/usuarios/ranking`);
 
     const ranking = await response.json();
 
@@ -123,9 +121,7 @@ document
 
 async function cargarPartidos() {
 
-    const response = await fetch(
-        "/partidos"
-    );
+    const response = await fetch(`${API}/partidos`);
 
     let partidos = await response.json();
 

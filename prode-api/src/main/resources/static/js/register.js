@@ -30,8 +30,7 @@ document
 
         try {
 
-            const response = await fetch(
-                "/auth/register",
+            const response = await fetch(`${API}/auth/register`,
                 {
                     method: "POST",
                     headers: {

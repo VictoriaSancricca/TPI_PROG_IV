@@ -12,8 +12,7 @@ document
 
         try {
 
-            const response = await fetch(
-                "/auth/login",
+            const response = await fetch(`${API}/auth/login`,
                 {
                     method: "POST",
                     headers: {

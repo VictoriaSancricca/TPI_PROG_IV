@@ -10,9 +10,7 @@ cargarPronosticos();
 
 async function cargarPronosticos() {
 
-    const response = await fetch(
-        `/pronosticos/usuario/${usuario.id}`
-    );
+    const response = await fetch(`${API}/pronosticos/usuario/${usuario.id}`);
 
     const pronosticos = await response.json();
 

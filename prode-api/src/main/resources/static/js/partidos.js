@@ -8,7 +8,7 @@ cargarPartidos();
 
 async function cargarPartidos() {
 
-    const response = await fetch("/partidos");
+    const response = await fetch(`${API}/partidos`);;
 
     partidos = await response.json();
 

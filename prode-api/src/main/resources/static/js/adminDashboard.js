@@ -55,16 +55,16 @@ async function cargarDashboard() {
 
     try {
 
-        const usuarios = await fetch("/usuarios")
+        const usuarios = await fetch(`${API}/usuarios`)
             .then(r => r.json());
 
-        const equipos = await fetch("/equipos")
+        const equipos = await fetch(`${API}/equipos`)
             .then(r => r.json());
 
-        const grupos = await fetch("/grupos")
+        const grupos = await fetch(`${API}/grupos`)
             .then(r => r.json());
 
-        const partidos = await fetch("/partidos")
+        const partidos = await fetch(`${API}/partidos`)
             .then(r => r.json());
 
         // Tarjetas superiores

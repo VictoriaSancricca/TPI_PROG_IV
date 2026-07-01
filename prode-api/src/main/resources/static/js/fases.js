@@ -172,9 +172,7 @@ async function generarFase() {
 
     try {
 
-        const response = await fetch(
-
-            "/fases/generar",
+        const response = await fetch(`${API}/fases/generar`,
 
             {
 

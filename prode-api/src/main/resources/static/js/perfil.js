@@ -10,9 +10,7 @@ cargarPerfil();
 
 async function cargarPerfil() {
 
-    const response = await fetch(
-        `/usuarios/${usuario.id}`
-    );
+    const response = await fetch(`${API}/usuarios/${usuario.id}`);
 
     const perfil = await response.json();
 
