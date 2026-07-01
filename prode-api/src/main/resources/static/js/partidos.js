@@ -1,14 +1,15 @@
 const PARTIDOS_POR_PAGINA = 10;
-
+const filtroFase = document.getElementById("filtroFase");
 let partidos = [];
 let paginaActual = 1;
 let partidoSeleccionado = null;
 
 cargarPartidos();
+filtroFase.addEventListener("change", aplicarFiltro);
 
 async function cargarPartidos() {
 
-    const response = await fetch(`${API}/partidos`);;
+    const response = await fetch(`${API}/partidos`);
 
     partidos = await response.json();
 
@@ -16,11 +17,29 @@ async function cargarPartidos() {
         new Date(a.fechaHora) - new Date(b.fechaHora)
     );
 
-    renderPartidos();
+    aplicarFiltro();
 
 }
 
-function renderPartidos() {
+function aplicarFiltro() {
+
+    let lista = [...partidos];
+
+    if (filtroFase.value !== "") {
+
+        lista = lista.filter(
+            p => p.fase === filtroFase.value
+        );
+
+    }
+
+    paginaActual = 1;
+
+    renderPartidos(lista);
+
+}
+
+function renderPartidos(lista = partidos) {
 
     const contenedor = document.getElementById("partidosContainer");
 
@@ -30,7 +49,7 @@ function renderPartidos() {
 
     const fin = inicio + PARTIDOS_POR_PAGINA;
 
-    const pagina = partidos.slice(inicio, fin);
+    const pagina = lista.slice(inicio, fin);
 
     pagina.forEach(partido => {
 
@@ -82,11 +101,10 @@ function renderPartidos() {
 
             <div class="team">
 
-                <div class="team-icon">
-
-                    <i class="bi bi-circle-fill"></i>
-
-                </div>
+                <img
+                    src="/img/banderas/${partido.local.bandera}"
+                    class="bandera"
+                    onerror="this.src='/img/no-image.png'">
 
                 <span>${partido.local.nombre}</span>
 
@@ -104,11 +122,10 @@ function renderPartidos() {
 
             <div class="team">
 
-                <div class="team-icon">
-
-                    <i class="bi bi-circle-fill"></i>
-
-                </div>
+                <img
+                    src="/img/banderas/${partido.visitante.bandera}"
+                    class="bandera"
+                    onerror="this.src='/img/no-image.png'">
 
                 <span>${partido.visitante.nombre}</span>
 
@@ -146,24 +163,23 @@ function renderPartidos() {
 
     });
 
-    renderPaginacion();
+    renderPaginacion(lista);
 
 }
 
-function renderPaginacion() {
+function renderPaginacion(lista = partidos) {
 
     const paginacion = document.getElementById("paginacion");
 
     paginacion.innerHTML = "";
 
     const totalPaginas = Math.ceil(
-        partidos.length / PARTIDOS_POR_PAGINA
+        lista.length / PARTIDOS_POR_PAGINA
     );
 
     for (let i = 1; i <= totalPaginas; i++) {
 
         paginacion.innerHTML += `
-
             <button
                 class="pagina ${i === paginaActual ? "activa" : ""}"
                 onclick="irPagina(${i})">
@@ -171,9 +187,7 @@ function renderPaginacion() {
                 ${i}
 
             </button>
-
         `;
-
     }
 
 }

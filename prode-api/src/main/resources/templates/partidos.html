@@ -89,13 +89,25 @@
 
                 <h2>Todos los partidos</h2>
 
-                <button class="btn-filtro">
+                <select id="filtroFase" class="btn-filtro">
 
-                    <i class="bi bi-funnel"></i>
+                <option value="">Todas las fases</option>
 
-                    Todas las fechas
+                <option value="GRUPOS">Grupos</option>
 
-                </button>
+                <option value="PRELIMINAR">Preliminar</option>
+
+                <option value="OCTAVOS">Octavos</option>
+
+                <option value="CUARTOS">Cuartos</option>
+
+                <option value="SEMIFINAL">Semifinal</option>
+
+                <option value="TERCER_PUESTO">Tercer Puesto</option>
+
+                <option value="FINAL">Final</option>
+
+            </select>
 
             </div>
 
@@ -151,9 +163,10 @@
     </div>
 
 </div>
+<script src="/js/config.js"></script>
 <script src="/js/partidos.js"></script>
 <script src="/js/app.js"></script>
-<script src="/js/config.js"></script>
+
 
 </body>
 </html>

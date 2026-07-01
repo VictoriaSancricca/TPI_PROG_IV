@@ -154,17 +154,11 @@ async function generarFase() {
     const confirmar = await Swal.fire({
 
         title: "¿Generar siguiente fase?",
-
         text: "Se crearán automáticamente los partidos de la siguiente fase del Mundial.",
-
         icon: "question",
-
         showCancelButton: true,
-
         confirmButtonText: "Generar",
-
         cancelButtonText: "Cancelar",
-
         confirmButtonColor: "#1565C0"
 
     });
@@ -173,30 +167,25 @@ async function generarFase() {
 
     try {
 
-        const response = await fetch(`${API}/fases/generar`,
+        const response = await fetch(`${API}/fases/generar`, {
 
-            {
+            method: "POST"
 
-                method: "POST"
-
-            }
-
-        );
+        });
 
         if (!response.ok) {
 
-            throw new Error();
+            const mensaje = await response.text();
+
+            throw new Error(mensaje);
 
         }
 
         await Swal.fire({
 
             icon: "success",
-
             title: "¡Fase generada!",
-
             text: "La siguiente fase fue generada correctamente.",
-
             confirmButtonColor: "#1565C0"
 
         });
@@ -208,16 +197,16 @@ async function generarFase() {
         Swal.fire({
 
             icon: "error",
-
             title: "Error",
-
-            text: "No fue posible generar la siguiente fase."
+            text: e.message
 
         });
 
     }
 
-    async function cargarFaseActual() {
+}   // <-- ESTA LLAVE FALTABA
+
+async function cargarFaseActual() {
 
     const response = await fetch(`${API}/fases/actual`);
 
@@ -240,5 +229,5 @@ async function generarFase() {
     }
 
 }
-}
+
 

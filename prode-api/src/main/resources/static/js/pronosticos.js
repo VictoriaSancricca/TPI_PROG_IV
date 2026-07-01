@@ -31,67 +31,86 @@ async function cargarPronosticos() {
 
     pronosticos.forEach(pronostico => {
 
-        const fechaHora = new Date(pronostico.partido.fechaHora);
+    const fechaHora = new Date(pronostico.partido.fechaHora);
 
-        const fecha = fechaHora.toLocaleDateString("es-AR", {
-            day: "2-digit",
-            month: "short"
-        }).toUpperCase();
+    const fecha = fechaHora.toLocaleDateString("es-AR", {
+        day: "2-digit",
+        month: "short"
+    }).toUpperCase();
 
-        contenedor.innerHTML += `
+    // ==========================
+    // BANDERAS
+    // ==========================
 
-        <div class="match-card">
+    const banderaLocal = `/img/banderas/${pronostico.partido.local.nombre
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "")
+        .toLowerCase()}.png`;
 
-            <div class="match-date">
+    const banderaVisitante = `/img/banderas/${pronostico.partido.visitante.nombre
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "")
+        .toLowerCase()}.png`;
 
-                <span class="group">
+    // ==========================
+    // TARJETA
+    // ==========================
 
-                    ${
-                        pronostico.partido.grupo
-                            ? "Grupo " + pronostico.partido.grupo.nombre
-                            : pronostico.partido.fase.replaceAll("_", " ")
-                    }
+    contenedor.innerHTML += `
 
-                </span>
+    <div class="match-card">
 
-                <small>
+        <div class="match-date">
 
-                    <i class="bi bi-calendar3"></i>
+            <span class="group">
+                ${
+                    pronostico.partido.grupo
+                        ? "Grupo " + pronostico.partido.grupo.nombre
+                        : pronostico.partido.fase.replaceAll("_", " ")
+                }
+            </span>
 
-                    ${fecha}
-
-                </small>
-
-            </div>
-
-            <div class="team">
-
-                ${pronostico.partido.local.nombre}
-
-            </div>
-
-            <div class="score">
-
-                ${pronostico.golesLocal} - ${pronostico.golesVisitante}
-
-            </div>
-
-            <div class="team">
-
-                ${pronostico.partido.visitante.nombre}
-
-            </div>
-
-            <button disabled>
-
-                ${pronostico.puntos} pts
-
-            </button>
+            <small>
+                <i class="bi bi-calendar-event"></i>
+                ${fecha}
+            </small>
 
         </div>
 
-        `;
+        <div class="team">
 
-    });
+            <img src="${banderaLocal}" class="flag">
+
+            <span>${pronostico.partido.local.nombre}</span>
+
+        </div>
+
+        <div class="score">
+
+            ${pronostico.golesLocal} - ${pronostico.golesVisitante}
+
+        </div>
+
+        <div class="team">
+
+            <img src="${banderaVisitante}" class="flag">
+
+            <span>${pronostico.partido.visitante.nombre}</span>
+
+        </div>
+
+        <button disabled class="points">
+
+            ${pronostico.puntos} pts
+
+        </button>
+
+    </div>
+
+    `;
+
+});
 
 }

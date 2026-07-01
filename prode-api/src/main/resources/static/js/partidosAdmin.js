@@ -8,9 +8,9 @@ if (usuario.rol !== "ROLE_ADMIN") {
     window.location.href = "/dashboard";
 }
 
-const API = "http:///partidos";
-const API_GRUPOS = "http:///grupos";
-const API_EQUIPOS = "http:///equipos";
+const API = "/partidos";
+const API_GRUPOS = "/grupos";
+const API_EQUIPOS = "/equipos";
 
 const tabla = document.getElementById("tablaPartidos");
 
