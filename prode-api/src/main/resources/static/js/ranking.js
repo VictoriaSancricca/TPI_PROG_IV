@@ -4,10 +4,14 @@ if (!usuario) {
     window.location.href = "/login";
 }
 
-document.getElementById("nombreUsuario").innerText =
-    usuario.nombre;
 
 cargarRanking();
+
+const USUARIOS_POR_PAGINA = 10;
+
+let ranking = [];
+
+let paginaActual = 1;
 
 async function cargarRanking() {
 
@@ -15,31 +19,40 @@ async function cargarRanking() {
         "http://localhost:8081/usuarios/ranking"
     );
 
-    const ranking = await response.json();
+    ranking = await response.json();
+
+    renderRanking();
+
+}
+
+function renderRanking() {
 
     const contenedor =
         document.getElementById("rankingContainer");
 
     contenedor.innerHTML = "";
 
-    ranking.forEach((usuario, index) => {
+    const inicio = (paginaActual - 1) * USUARIOS_POR_PAGINA;
+
+    const fin = inicio + USUARIOS_POR_PAGINA;
+
+    const pagina = ranking.slice(inicio, fin);
+
+    pagina.forEach((usuario, index) => {
+
+        const posicion = inicio + index + 1;
 
         let medalla = "";
 
-        if (index === 0)
-            medalla = "🥇";
-
-        else if (index === 1)
-            medalla = "🥈";
-
-        else if (index === 2)
-            medalla = "🥉";
+        if (posicion === 1) medalla = "🥇";
+        else if (posicion === 2) medalla = "🥈";
+        else if (posicion === 3) medalla = "🥉";
 
         contenedor.innerHTML += `
 
         <div class="ranking-card">
 
-            <span>${medalla} #${index + 1}</span>
+            <span>${medalla} #${posicion}</span>
 
             <strong>${usuario.nombre}</strong>
 
@@ -53,4 +66,44 @@ async function cargarRanking() {
 
     });
 
+    renderPaginacion();
+
 }
+
+function renderPaginacion() {
+
+    const paginacion =
+        document.getElementById("paginacion");
+
+    paginacion.innerHTML = "";
+
+    const total =
+        Math.ceil(ranking.length / USUARIOS_POR_PAGINA);
+
+    for(let i = 1; i <= total; i++){
+
+        paginacion.innerHTML += `
+
+        <button
+            class="pagina ${i == paginaActual ? "activa" : ""}"
+            onclick="irPagina(${i})">
+
+            ${i}
+
+        </button>
+
+        `;
+
+    }
+
+}
+
+function irPagina(numero){
+
+    paginaActual = numero;
+
+    renderRanking();
+
+}
+
+window.irPagina = irPagina;

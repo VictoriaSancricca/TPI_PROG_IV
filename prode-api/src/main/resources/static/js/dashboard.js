@@ -9,8 +9,11 @@ if (!usuario) {
     document.getElementById("saludo").innerHTML =
         `¡Hola, ${usuario.nombre}! 👋`;
 
-    document.getElementById("nombreUsuario").innerText =
-        usuario.nombre;
+    const nombre = document.getElementById("nombreUsuario");
+
+    if (nombre) {
+        nombre.innerText = usuario.nombre;
+    }
 
 }
 
@@ -65,13 +68,27 @@ async function cargarRanking() {
 
     contenedor.innerHTML = "";
 
-    ranking.forEach((usuario, index) => {
+        ranking.slice(0, 3).forEach((usuario, index) => {
+
+        let medalla = "";
+
+        if (index === 0) {
+            medalla = "🥇";
+        } else if (index === 1) {
+            medalla = "🥈";
+        } else {
+            medalla = "🥉";
+        }
 
         contenedor.innerHTML += `
 
             <div class="ranking-card">
 
-                <span>#${index + 1}</span>
+                <span class="puesto">
+
+                    ${medalla} #${index + 1}
+
+                </span>
 
                 <strong>${usuario.nombre}</strong>
 
@@ -110,44 +127,65 @@ async function cargarPartidos() {
         "http://localhost:8081/partidos"
     );
 
-    const partidos = await response.json();
+    let partidos = await response.json();
 
-    const proximos = partidos.filter(
-        p => p.estado === "POR_JUGARSE"
-    );
+    partidos = partidos
+        .filter(p => p.estado === "POR_JUGARSE")
+        .sort((a, b) =>
+            new Date(a.fechaHora) - new Date(b.fechaHora)
+        )
+        .slice(0, 5);
 
     const contenedor =
         document.getElementById("partidosContainer");
 
     contenedor.innerHTML = "";
 
-    proximos.forEach(partido => {
+    partidos.forEach(partido => {
+
+        const fechaHora = new Date(partido.fechaHora);
+
+        const fecha = fechaHora.toLocaleDateString("es-AR", {
+            day: "2-digit",
+            month: "short"
+        }).toUpperCase();
+
+        const hora = fechaHora.toLocaleTimeString("es-AR", {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
 
         contenedor.innerHTML += `
 
-        <div class="match-card">
+        <div class="ranking-card">
 
-            <span class="group">
-                ${partido.fecha.nombre}
-            </span>
+            <div>
 
-            <div class="team">
+                <span class="group">
+
+                    ${
+                        partido.grupo
+                            ? "Grupo " + partido.grupo.nombre
+                            : partido.fase.replaceAll("_"," ")
+                    }
+
+                </span>
+
+            </div>
+
+            <strong>
+
                 ${partido.local.nombre}
-            </div>
 
-            <div class="score">
-                <input type="number" min="0" id="local-${partido.id}">
-                <span>-</span>
-                <input type="number" min="0" id="visitante-${partido.id}">
-            </div>
+                VS
 
-            <div class="team">
                 ${partido.visitante.nombre}
-            </div>
 
-            <button onclick="pronosticar(${partido.id})">
-                Pronosticar
-            </button>
+            </strong>
+
+            <span>${fecha}</span>
+
+            <span>${hora}</span>
 
         </div>
 

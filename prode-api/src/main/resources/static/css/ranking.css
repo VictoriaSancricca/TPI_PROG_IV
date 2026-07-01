@@ -1,0 +1,100 @@
+.ranking{
+
+    margin-top:35px;
+
+}
+
+#rankingContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.ranking-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:22px 28px;
+
+    display:grid;
+
+    grid-template-columns:
+        120px
+        1fr
+        140px
+        140px;
+
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+    border:1px solid #EDF2F8;
+
+}
+
+.ranking-card strong{
+
+    font-size:22px;
+
+    color:#0B2447;
+
+}
+
+.ranking-card span{
+
+    font-size:18px;
+
+}
+
+.ranking-card span:first-child{
+
+    font-weight:800;
+
+    color:#1E63E9;
+
+}
+
+
+.paginacion{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-top:30px;
+
+}
+
+.pagina{
+
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    background:#fff;
+    color:#0B2447;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.2s;
+
+}
+
+.pagina:hover{
+
+    background:#EDF4FF;
+
+}
+
+.pagina.activa{
+
+    background:#1E63E9;
+    color:#fff;
+
+}

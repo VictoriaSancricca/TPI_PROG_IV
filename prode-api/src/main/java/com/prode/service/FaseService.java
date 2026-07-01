@@ -1,5 +1,8 @@
 package com.prode.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +19,6 @@ import com.prode.enums.EstadoPartido;
 import com.prode.enums.FaseMundial;
 import com.prode.repository.FaseRepository;
 import com.prode.repository.PartidoRepository;
-
-
 @Service
 public class FaseService {
 
@@ -25,6 +26,18 @@ public class FaseService {
     private final GrupoService grupoService;
     private final PartidoService partidoService;
     private final PartidoRepository partidoRepository;
+    private LocalDate fechaActual = LocalDate.now();
+
+    private final LocalTime[] horarios = {
+
+            LocalTime.of(13, 0),
+            LocalTime.of(16, 0),
+            LocalTime.of(19, 0),
+            LocalTime.of(22, 0)
+
+    };
+
+    private int indiceHorario = 0;
 
     public FaseService(
         FaseRepository faseRepository,
@@ -157,12 +170,32 @@ public class FaseService {
 
         partido.setFase(fase);
 
+        partido.setFechaHora(
+                LocalDateTime.of(
+                        fechaActual,
+                        horarios[indiceHorario]
+                )
+        );
+
+        indiceHorario++;
+
+        if (indiceHorario == horarios.length) {
+
+            indiceHorario = 0;
+
+            fechaActual = fechaActual.plusDays(1);
+
+        }
+
         partidoRepository.save(partido);
 
     }
 
     public void generarPartidosGrupos() {
 
+        fechaActual = LocalDate.now();
+        indiceHorario = 0;
+        
         if (!partidoRepository.findAll().isEmpty()) {
 
             throw new RuntimeException(

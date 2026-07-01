@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
 
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/dashboard-home.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -90,13 +91,6 @@
 
             </a>
 
-            <a href="/ranking" class="menu">
-
-                <i class="bi bi-bar-chart-fill"></i>
-
-                Ranking
-
-            </a>
 
         </nav>
 
@@ -189,7 +183,65 @@
             </div>
 
         </section>
+        
+        <section class="dashboard-resumen">
 
+            <div class="dashboard-panel">
+
+                <h3>
+                    <i class="bi bi-globe-americas"></i>
+                    Estado del Mundial
+                </h3>
+
+                <div class="info">
+
+                    <span>Fase actual</span>
+                    <strong id="faseActual">-</strong>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Partidos jugados</span>
+                    <strong id="partidosJugados">0</strong>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Partidos pendientes</span>
+                    <strong id="partidosPendientes">0</strong>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Total de partidos</span>
+
+                    <strong id="totalPartidos">0</strong>
+
+                </div>
+
+
+            </div>
+
+            <div class="dashboard-panel">
+
+                <h3>
+
+                    <i class="bi bi-calendar-event-fill"></i>
+
+                    Próximos partidos
+
+                </h3>
+
+                <div id="proximosPartidos">
+
+                </div>
+
+            </div>
+
+        </section>
         <section class="admin-title">
 
             <h2>Gestión del Mundial</h2>

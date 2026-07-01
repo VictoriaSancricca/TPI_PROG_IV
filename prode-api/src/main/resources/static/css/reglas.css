@@ -1,0 +1,192 @@
+/* =========================
+   REGLAS
+========================= */
+
+.matches{
+    margin-top: 30px;
+}
+
+.section-title{
+    font-size: 34px;
+    font-weight: 700;
+    color: #0c2858;
+    margin-bottom:25px;
+}
+
+/* Tarjeta principal */
+
+.match-card{
+    background:#fff;
+    border-radius:22px;
+    padding:40px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    border:1px solid #edf1f7;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Separadores */
+
+.match-card hr{
+    border:none;
+    border-top:1px solid #e8edf5;
+    margin:30px 0;
+}
+
+/* Titulos */
+
+.match-card h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:26px;
+    color:#0b2c61;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+/* Texto */
+
+.match-card p{
+    font-size:17px;
+    color:#4b5563;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+/* Strong */
+
+.match-card strong{
+    color:#0b2c61;
+    font-weight:700;
+}
+
+/* Listas */
+
+.match-card ul,
+.match-card ol{
+    margin-left:35px !important;
+    margin-top:15px;
+}
+
+.match-card li{
+    margin-bottom:12px;
+    font-size:17px;
+    color:#4b5563;
+}
+
+/* Fondo alternado para cada sección */
+
+.match-card h3{
+    padding:14px 18px;
+    background:#f5f9ff;
+    border-left:5px solid #1d4ed8;
+    border-radius:12px;
+}
+
+/* Animación */
+
+.match-card{
+    animation:fadeReglas .5s ease;
+}
+
+@keyframes fadeReglas{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .match-card{
+        padding:25px;
+    }
+
+    .match-card h3{
+        font-size:21px;
+    }
+
+    .match-card p,
+    .match-card li{
+        font-size:15px;
+    }
+
+}
+
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.card{
+
+    background:white;
+    border-radius:20px;
+    padding:25px;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    transition:.25s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    border:1px solid #edf1f7;
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.card i{
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:30px;
+
+    color:white;
+
+    background:linear-gradient(135deg,#1f4ea7,#0c2858);
+
+}
+
+.card span{
+
+    display:block;
+    color:#6b7280;
+    font-size:15px;
+    margin-bottom:6px;
+
+}
+
+.card h2{
+
+    margin:0;
+    color:#0b2c61;
+    font-size:36px;
+
+}
